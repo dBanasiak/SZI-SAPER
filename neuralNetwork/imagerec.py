@@ -1,13 +1,12 @@
 from PIL import Image
 import numpy as np
-import matplotlib.pyplot as plt
 import functools
 from collections import Counter
 
 def createExamples():
     numberArrayExamples = open('numArEx.txt', 'a')
-    numbersWeHave = range(1, 10)
-    versionWeHave = range(1, 10)
+    numbersWeHave = range(0, 9)
+    versionWeHave = range(1, 9)
 
     for eachNum in numbersWeHave:
         for eachVer in versionWeHave:
@@ -78,4 +77,5 @@ def whatNumIsThis(filePath):
 
     print(x)
 
+createExamples()
 whatNumIsThis('images/test.png')
