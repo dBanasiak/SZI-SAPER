@@ -7,6 +7,7 @@ const bomb2 = document.getElementById('bomb2')
 const bomb3 = document.getElementById('bomb3')
 const bomb4 = document.getElementById('bomb4')
 const bomb5 = document.getElementById('bomb5')
+const bomb6 = document.getElementById('bomb6')
 const setBomb = document.getElementById('bomb-btn')
 const closeButton = document.querySelector('.close')
 
@@ -42,6 +43,7 @@ function setDefaultValueOffAllElements () {
     bomb3.value = 10;
     bomb4.value = 10;
     bomb5.value = 10;
+    bomb6.value = 10;
 }
 setDefaultValueOffAllElements();
 
@@ -132,5 +134,9 @@ setBomb.addEventListener('click', () => {
         setBombOnMap(Number(bomb5.value), 5)
         drawMatrix(matrix, {x: 0, y: 0})
     }, 1500)
-    console.log('Ilość bomb na mapie: '+bombCounter,'\nCzasowa: '+ Number(bomb1.value)+'\nNaciskowa: ' + Number(bomb2.value)+'\nCieplna: ' + Number(bomb3.value)+ '\nDynamit: ' + Number(bomb4.value)+ '\nZegarowa: ' + Number(bomb5.value))
+    setTimeout(() => {
+      setBombOnMap(Number(bomb6.value), 6)
+      drawMatrix(matrix, {x: 0, y: 0})
+  }, 1800)
+    console.log('Ilość bomb na mapie: '+bombCounter,'\nZegarowa: '+ Number(bomb1.value)+'\nDynamit: ' + Number(bomb2.value)+'\nCieplna: ' + Number(bomb3.value)+ '\nBiologiczna: ' + Number(bomb4.value)+ '\nPrzeciwpiechotna: ' + Number(bomb5.value)+ '\nPrzeciwpancerna: ' + Number(bomb6.value))
 })

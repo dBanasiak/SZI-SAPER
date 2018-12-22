@@ -20,15 +20,15 @@
       }
       input {
         width: 100%;
-        padding: 8px;
+        padding: 4px;
         border-radius: 24px;
-        margin: 8px 0;
+        margin: 4px 0;
         font-size: 1.4em;
       }
       button {
         font-size: 1.4em;
         border-radius: 24px;
-        padding: 16px;
+        padding: 4px;
         cursor: pointer;
       }
       #map {
@@ -72,11 +72,13 @@
   <div class="left-side">
     <div>
       <h2>Wpisz ilość poszczególnych bomb</h2>
-      <label for="bomb1">Czasowa</label> <input placeholder="1 bomba" type="text" id="bomb1" />
-      <label for="bomb2">Naciskowa</label><input placeholder="2 bomba" type="text" id="bomb2" />
+      <label for="bomb1">Zegarowa</label> <input placeholder="1 bomba" type="text" id="bomb1" />
+      <label for="bomb2">Dynamit</label><input placeholder="2 bomba" type="text" id="bomb2" />
       <label for="bomb3">Cieplna</label><input placeholder="3 bomba" type="text" id="bomb3" />
-      <label for="bomb4">Dynamit</label><input placeholder="4 bomba" type="text" id="bomb4" /><label for="bomb5">Zegarowa</label>
-      <input placeholder="5 bomba" type="text" id="bomb5" /> <button id="bomb-btn">Ustaw bomby</button>
+      <label for="bomb4">Biologiczna</label><input placeholder="4 bomba" type="text" id="bomb4" /><label for="bomb5">Przeciwpiechotna</label>
+      <input placeholder="5 bomba" type="text" id="bomb5" />
+      <label for="bomb5">Przeciwpancerna</label>
+      <input placeholder="6 bomba" type="text" id="bomb6" /><button id="bomb-btn">Ustaw bomby</button>
     </div>
   </div>
   <div class="right-side"><button class="close hide">X</button> <canvas id="map"></canvas></div>
