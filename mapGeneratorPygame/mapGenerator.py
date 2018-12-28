@@ -9,6 +9,7 @@ BLUE = (0, 0, 255)
 PINK = (255, 0, 255)
 TEAL = (0, 255, 255)
 YELLOW = (255, 255, 0)
+GREY = (50,50,50)
 
 # Szerokość i wysokość punktu
 WIDTH = 20
@@ -25,6 +26,7 @@ for row in range(20):
         grid[row].append(0)
 
 #Ustawiam punkty początkowe
+grid[0][0] = 7
 grid[1][3] = 1
 grid[10][15] = 2
 grid[18][5] = 3
@@ -36,7 +38,7 @@ grid[14][15] = 6
 pygame.init()
 
 # Szerokość i wysokość okna aplikacji
-WINDOW_SIZE = [500, 500]
+WINDOW_SIZE = [420, 420]
 screen = pygame.display.set_mode(WINDOW_SIZE)
 
 # Tytuł aplikacji
@@ -73,7 +75,6 @@ while not done:
             print("Czerwony ", pos, "Wybrales pozycje: ", row, column)
         elif event.type == pygame.KEYDOWN and event.key == 99: #Klawisz c
             # Sprawdza gdzie ustawiliśmy bombe
-            print(event.key)
             pos = pygame.mouse.get_pos()
             # Ustaw koordynaty grid
             column = pos[0] // (WIDTH + MARGIN)
@@ -143,6 +144,8 @@ while not done:
                 color = TEAL
             elif grid[row][column] == 6:
                 color = YELLOW
+            elif grid[row][column] == 7:
+                color = GREY
             pygame.draw.rect(screen,
                              color,
                              [(MARGIN + WIDTH) * column + MARGIN,
