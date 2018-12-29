@@ -9,6 +9,7 @@ BLUE = (0, 0, 255)
 PINK = (255, 0, 255)
 TEAL = (0, 255, 255)
 YELLOW = (255, 255, 0)
+GREY = (100, 100, 100)
 
 # Szerokość i wysokość punktu
 WIDTH = 20
@@ -31,12 +32,13 @@ grid[18][5] = 3
 grid[2][7] = 4
 grid[9][5] = 5
 grid[14][15] = 6
+grid[0][0] = 7
 
 # Inicjalizacja Pygame
 pygame.init()
 
 # Szerokość i wysokość okna aplikacji
-WINDOW_SIZE = [500, 500]
+WINDOW_SIZE = [420, 420]
 screen = pygame.display.set_mode(WINDOW_SIZE)
 
 # Tytuł aplikacji
@@ -54,71 +56,45 @@ while not done:
         if event.type == pygame.QUIT:  # Zamknij program
             done = True  # Flaga zamykanie apki
         elif event.type == pygame.KEYDOWN and event.key == 122: #Klawisz z
-            # Sprawdza gdzie ustawiliśmy bombe
             pos = pygame.mouse.get_pos()
-            # Ustaw koordynaty grid
-            column = pos[0] // (WIDTH + MARGIN)
-            row = pos[1] // (HEIGHT + MARGIN)
-            # Ustaw punkt
+            column = pos[0]
+            row = pos[1]
             grid[row][column] = 1
             print("Zielony ", pos, "Wybrales pozycje: ", row, column)
         elif event.type == pygame.KEYDOWN and event.key == 120: #Klawisz x
-            # Sprawdza gdzie ustawiliśmy bombe
             pos = pygame.mouse.get_pos()
-            # Ustaw koordynaty grid
             column = pos[0] // (WIDTH + MARGIN)
-            row = pos[1] // (HEIGHT + MARGIN)
-            # Ustaw punkt
+            row = pos[1]
             grid[row][column] = 2
             print("Czerwony ", pos, "Wybrales pozycje: ", row, column)
         elif event.type == pygame.KEYDOWN and event.key == 99: #Klawisz c
-            # Sprawdza gdzie ustawiliśmy bombe
-            print(event.key)
             pos = pygame.mouse.get_pos()
-            # Ustaw koordynaty grid
-            column = pos[0] // (WIDTH + MARGIN)
-            row = pos[1] // (HEIGHT + MARGIN)
-            # Ustaw punkt
+            column = pos[0]
+            row = pos[1]
             grid[row][column] = 3
             print("NIEBIESKI ", pos, "Wybrales pozycje: ", row, column)
         elif event.type == pygame.KEYDOWN and event.key == 118: #Klawisz v
-            # Sprawdza gdzie ustawiliśmy bombe
-            print(event.key)
             pos = pygame.mouse.get_pos()
-            # Ustaw koordynaty grid
-            column = pos[0] // (WIDTH + MARGIN)
-            row = pos[1] // (HEIGHT + MARGIN)
-            # Ustaw punkt
+            column = pos[0]
+            row = pos[1]
             grid[row][column] = 4
             print("ROZOWY ", pos, "Wybrales pozycje: ", row, column)
         elif event.type == pygame.KEYDOWN and event.key == 98: #Klawisz b
-            # Sprawdza gdzie ustawiliśmy bombe
-            print(event.key)
             pos = pygame.mouse.get_pos()
-            # Ustaw koordynaty grid
-            column = pos[0] // (WIDTH + MARGIN)
-            row = pos[1] // (HEIGHT + MARGIN)
-            # Ustaw punkt
+            column = pos[0]
+            row = pos[1]
             grid[row][column] = 5
             print("TURKUSOWY ", pos, "Wybrales pozycje: ", row, column)
         elif event.type == pygame.KEYDOWN and event.key == 110: #Klawisz n
-            # Sprawdza gdzie ustawiliśmy bombe
-            print(event.key)
             pos = pygame.mouse.get_pos()
-            # Ustaw koordynaty grid
-            column = pos[0] // (WIDTH + MARGIN)
-            row = pos[1] // (HEIGHT + MARGIN)
-            # Ustaw punkt
+            column = pos[0]
+            row = pos[1]
             grid[row][column] = 6
             print("ZOLTY ", pos, "Wybrales pozycje: ", row, column)
-        elif event.type == pygame.KEYDOWN and event.key == 27: #Klawisz n
-            # Sprawdza gdzie ustawiliśmy bombe
-            print(event.key)
+        elif event.type == pygame.KEYDOWN and event.key == 27: # klawisz esc
             pos = pygame.mouse.get_pos()
-            # Ustaw koordynaty grid
-            column = pos[0] // (WIDTH + MARGIN)
-            row = pos[1] // (HEIGHT + MARGIN)
-            # Ustaw punkt
+            column = pos[0]
+            row = pos[1]
             grid[row][column] = 0
             print("Bialy ", pos, "Wybrales pozycje: ", row, column)
         elif event.type == pygame.KEYDOWN:
@@ -143,6 +119,8 @@ while not done:
                 color = TEAL
             elif grid[row][column] == 6:
                 color = YELLOW
+            elif grid[row][column] == 7:
+                color = GREY
             pygame.draw.rect(screen,
                              color,
                              [(MARGIN + WIDTH) * column + MARGIN,
