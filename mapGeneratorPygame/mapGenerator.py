@@ -9,7 +9,11 @@ BLUE = (0, 0, 255)
 PINK = (255, 0, 255)
 TEAL = (0, 255, 255)
 YELLOW = (255, 255, 0)
+<<<<<<< HEAD
 GREY = (100, 100, 100)
+=======
+GREY = (50,50,50)
+>>>>>>> d0b4900b0b0807a7655494b71c14663445c899eb
 
 # Szerokość i wysokość punktu
 WIDTH = 20
@@ -26,6 +30,7 @@ for row in range(20):
         grid[row].append(0)
 
 #Ustawiam punkty początkowe
+grid[0][0] = 7
 grid[1][3] = 1
 grid[10][15] = 2
 grid[18][5] = 3
@@ -68,6 +73,10 @@ while not done:
             grid[row][column] = 2
             print("Czerwony ", pos, "Wybrales pozycje: ", row, column)
         elif event.type == pygame.KEYDOWN and event.key == 99: #Klawisz c
+<<<<<<< HEAD
+=======
+            # Sprawdza gdzie ustawiliśmy bombe
+>>>>>>> d0b4900b0b0807a7655494b71c14663445c899eb
             pos = pygame.mouse.get_pos()
             column = pos[0]
             row = pos[1]
