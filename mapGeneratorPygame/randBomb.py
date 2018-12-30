@@ -31,6 +31,6 @@ def randBomb(x):
 def bombType(x):
     for i in range(0, x):
         bombTypeArray.append(whatBombIsThis(randArray[i], exPath))
-    return randArray
+    return bombTypeArray
 
 

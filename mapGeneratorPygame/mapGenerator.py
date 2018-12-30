@@ -31,6 +31,8 @@ bombPathList = randBomb(5)
 # Typy wylosowanych 5 bomb
 bombTypeList = bombType(5)
 
+print(bombTypeList)
+
 # Sieć neuronowa - Stwórz próbki do rozpoznania obrazów i sprawdź przykładowy obraz
 
 # Główna pętla
@@ -46,12 +48,11 @@ while not done:
     screen.fill(WHITE)
     screen.blit(saper, (x, y))
 
-    for i in range(0, 5):
-        screen.blit(pygame.image.load(bombPathList[0]), (640, 0))
-        screen.blit(pygame.image.load(bombPathList[1]), (128, 64))
-        screen.blit(pygame.image.load(bombPathList[2]), (256, 128))
-        screen.blit(pygame.image.load(bombPathList[3]), (64, 320))
-        screen.blit(pygame.image.load(bombPathList[4]), (384, 320))
+    screen.blit(pygame.image.load(bombPathList[0]), (640, 0))
+    screen.blit(pygame.image.load(bombPathList[1]), (128, 64))
+    screen.blit(pygame.image.load(bombPathList[2]), (256, 128))
+    screen.blit(pygame.image.load(bombPathList[3]), (64, 320))
+    screen.blit(pygame.image.load(bombPathList[4]), (384, 320))
 
     # Naiwne poruszanie się robota
     if y < 576:

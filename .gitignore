@@ -108,3 +108,5 @@ build
 npm-debug.log
 .env
 .DS_Store
+
+neuralNetwork/numArEx.txt
