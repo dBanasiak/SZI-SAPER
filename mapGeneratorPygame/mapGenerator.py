@@ -1,142 +1,68 @@
 import pygame
+from mapGeneratorPygame.randBomb import randBomb, bombType
 
-# Kolory - Ale trzeba będzie zdefiniować bomby zamiast nich raczej
-BLACK = (0, 0, 0)
+# Kolory
 WHITE = (255, 255, 255)
-GREEN = (0, 255, 0)
-RED = (255, 0, 0)
-BLUE = (0, 0, 255)
-PINK = (255, 0, 255)
-TEAL = (0, 255, 255)
-YELLOW = (255, 255, 0)
-<<<<<<< HEAD
-GREY = (100, 100, 100)
-=======
-GREY = (50,50,50)
->>>>>>> d0b4900b0b0807a7655494b71c14663445c899eb
 
-# Szerokość i wysokość punktu
-WIDTH = 20
-HEIGHT = 20
+# Saper
+saper = pygame.image.load('saper/saper.png')
+x = 0
+y = 0
 
-# Odległość między kwadracikami
-MARGIN = 1
-
-# Dwuwymiarowa tablica
-grid = []
-for row in range(20):
-    grid.append([])
-    for column in range(20):
-        grid[row].append(0)
-
-#Ustawiam punkty początkowe
-grid[0][0] = 7
-grid[1][3] = 1
-grid[10][15] = 2
-grid[18][5] = 3
-grid[2][7] = 4
-grid[9][5] = 5
-grid[14][15] = 6
-grid[0][0] = 7
-
-# Inicjalizacja Pygame
-pygame.init()
+# Bomby
+# timerBomb = pygame.image.load(timerPath)
+# dynamiteBomb = pygame.image.load(dynamitePath)
+# thBomb = pygame.image.load(thPath)
+# bioBomb = pygame.image.load(bioPath)
+# mineBomb = pygame.image.load(minePath)
+# grenadeBomb = pygame.image.load(granadePath)
 
 # Szerokość i wysokość okna aplikacji
-WINDOW_SIZE = [420, 420]
+WINDOW_SIZE = [1024, 640]
 screen = pygame.display.set_mode(WINDOW_SIZE)
-
-# Tytuł aplikacji
-pygame.display.set_caption("Generator map")
-
-# Fallback wyłączania apki
+pygame.display.set_caption("Automatyczny Saper - Mapa")
+pygame.init()
 done = False
-
-# Szybkość odświeżania aplikacji
 clock = pygame.time.Clock()
+FPS = 15
 
-# -------- Główna pętla -----------
+# Wylosowane 5 bomb
+bombPathList = randBomb(5)
+# Typy wylosowanych 5 bomb
+bombTypeList = bombType(5)
+
+# Sieć neuronowa - Stwórz próbki do rozpoznania obrazów i sprawdź przykładowy obraz
+
+# Główna pętla
 while not done:
-    for event in pygame.event.get():  # Listener
-        if event.type == pygame.QUIT:  # Zamknij program
-            done = True  # Flaga zamykanie apki
-        elif event.type == pygame.KEYDOWN and event.key == 122: #Klawisz z
-            pos = pygame.mouse.get_pos()
-            column = pos[0]
-            row = pos[1]
-            grid[row][column] = 1
-            print("Zielony ", pos, "Wybrales pozycje: ", row, column)
-        elif event.type == pygame.KEYDOWN and event.key == 120: #Klawisz x
-            pos = pygame.mouse.get_pos()
-            column = pos[0] // (WIDTH + MARGIN)
-            row = pos[1]
-            grid[row][column] = 2
-            print("Czerwony ", pos, "Wybrales pozycje: ", row, column)
-        elif event.type == pygame.KEYDOWN and event.key == 99: #Klawisz c
-<<<<<<< HEAD
-=======
-            # Sprawdza gdzie ustawiliśmy bombe
->>>>>>> d0b4900b0b0807a7655494b71c14663445c899eb
-            pos = pygame.mouse.get_pos()
-            column = pos[0]
-            row = pos[1]
-            grid[row][column] = 3
-            print("NIEBIESKI ", pos, "Wybrales pozycje: ", row, column)
-        elif event.type == pygame.KEYDOWN and event.key == 118: #Klawisz v
-            pos = pygame.mouse.get_pos()
-            column = pos[0]
-            row = pos[1]
-            grid[row][column] = 4
-            print("ROZOWY ", pos, "Wybrales pozycje: ", row, column)
-        elif event.type == pygame.KEYDOWN and event.key == 98: #Klawisz b
-            pos = pygame.mouse.get_pos()
-            column = pos[0]
-            row = pos[1]
-            grid[row][column] = 5
-            print("TURKUSOWY ", pos, "Wybrales pozycje: ", row, column)
-        elif event.type == pygame.KEYDOWN and event.key == 110: #Klawisz n
-            pos = pygame.mouse.get_pos()
-            column = pos[0]
-            row = pos[1]
-            grid[row][column] = 6
-            print("ZOLTY ", pos, "Wybrales pozycje: ", row, column)
-        elif event.type == pygame.KEYDOWN and event.key == 27: # klawisz esc
-            pos = pygame.mouse.get_pos()
-            column = pos[0]
-            row = pos[1]
-            grid[row][column] = 0
-            print("Bialy ", pos, "Wybrales pozycje: ", row, column)
-        elif event.type == pygame.KEYDOWN:
-            print(event.key)
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+             done = True
+        # cofnij robota do początku po kliknięciu klawisza z
+        elif event.type == pygame.KEYDOWN and event.key == 122:
+            x = 0
+            y = 0
 
-    # Tło aplikacji
-    screen.fill(BLACK)
+    screen.fill(WHITE)
+    screen.blit(saper, (x, y))
 
-    # Narysuj mape
-    for row in range(20):
-        for column in range(20):
-            color = WHITE
-            if grid[row][column] == 1:
-                color = GREEN
-            elif grid[row][column] == 2:
-                color = RED
-            elif grid[row][column] == 3:
-                color = BLUE
-            elif grid[row][column] == 4:
-                color = PINK
-            elif grid[row][column] == 5:
-                color = TEAL
-            elif grid[row][column] == 6:
-                color = YELLOW
-            elif grid[row][column] == 7:
-                color = GREY
-            pygame.draw.rect(screen,
-                             color,
-                             [(MARGIN + WIDTH) * column + MARGIN,
-                              (MARGIN + HEIGHT) * row + MARGIN,
-                              WIDTH,
-                              HEIGHT])
-    clock.tick(60)
-    pygame.display.flip()
+    for i in range(0, 5):
+        screen.blit(pygame.image.load(bombPathList[0]), (640, 0))
+        screen.blit(pygame.image.load(bombPathList[1]), (128, 64))
+        screen.blit(pygame.image.load(bombPathList[2]), (256, 128))
+        screen.blit(pygame.image.load(bombPathList[3]), (64, 320))
+        screen.blit(pygame.image.load(bombPathList[4]), (384, 320))
 
-pygame.quit()
+    # Naiwne poruszanie się robota
+    if y < 576:
+        if x < 1024:
+            x += 64
+        if x == 1024:
+            y += 64
+            x = 0
+    if y == 576:
+        if x < 960:
+            x += 64
+
+    pygame.display.update()
+    clock.tick(FPS)
