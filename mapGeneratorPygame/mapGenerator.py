@@ -27,9 +27,9 @@ clock = pygame.time.Clock()
 FPS = 15
 
 # Wylosowane 5 bomb
-bombPathList = randBomb(5)
+bombPathList = randBomb(10)
 # Typy wylosowanych 5 bomb
-bombTypeList = bombType(5)
+bombTypeList = bombType(10)
 
 print(bombTypeList)
 
@@ -53,6 +53,11 @@ while not done:
     screen.blit(pygame.image.load(bombPathList[2]), (256, 128))
     screen.blit(pygame.image.load(bombPathList[3]), (64, 320))
     screen.blit(pygame.image.load(bombPathList[4]), (384, 320))
+    screen.blit(pygame.image.load(bombPathList[5]), (800, 380))
+    screen.blit(pygame.image.load(bombPathList[6]), (213, 12))
+    screen.blit(pygame.image.load(bombPathList[7]), (150, 400))
+    screen.blit(pygame.image.load(bombPathList[8]), (500, 143))
+    screen.blit(pygame.image.load(bombPathList[9]), (900, 434))
 
     # Naiwne poruszanie się robota
     if y < 576:
@@ -65,5 +70,5 @@ while not done:
         if x < 960:
             x += 64
 
-    pygame.display.update()
+    pygame.display.flip()
     clock.tick(FPS)
