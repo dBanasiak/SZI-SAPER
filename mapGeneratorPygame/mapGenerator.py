@@ -3,19 +3,12 @@ from mapGeneratorPygame.randBomb import randBomb, bombType
 
 # Kolory
 WHITE = (255, 255, 255)
+RED = (255, 0, 0)
 
 # Saper
 saper = pygame.image.load('saper/saper.png')
 x = 0
 y = 0
-
-# Bomby
-# timerBomb = pygame.image.load(timerPath)
-# dynamiteBomb = pygame.image.load(dynamitePath)
-# thBomb = pygame.image.load(thPath)
-# bioBomb = pygame.image.load(bioPath)
-# mineBomb = pygame.image.load(minePath)
-# grenadeBomb = pygame.image.load(granadePath)
 
 # Szerokość i wysokość okna aplikacji
 WINDOW_SIZE = [1024, 640]
@@ -33,8 +26,6 @@ bombTypeList = bombType(10)
 
 print(bombTypeList)
 
-# Sieć neuronowa - Stwórz próbki do rozpoznania obrazów i sprawdź przykładowy obraz
-
 # Główna pętla
 while not done:
     for event in pygame.event.get():
@@ -48,16 +39,16 @@ while not done:
     screen.fill(WHITE)
     screen.blit(saper, (x, y))
 
-    screen.blit(pygame.image.load(bombPathList[0]), (640, 0))
-    screen.blit(pygame.image.load(bombPathList[1]), (128, 64))
-    screen.blit(pygame.image.load(bombPathList[2]), (256, 128))
-    screen.blit(pygame.image.load(bombPathList[3]), (64, 320))
-    screen.blit(pygame.image.load(bombPathList[4]), (384, 320))
-    screen.blit(pygame.image.load(bombPathList[5]), (800, 380))
-    screen.blit(pygame.image.load(bombPathList[6]), (213, 12))
-    screen.blit(pygame.image.load(bombPathList[7]), (150, 400))
-    screen.blit(pygame.image.load(bombPathList[8]), (500, 143))
-    screen.blit(pygame.image.load(bombPathList[9]), (900, 434))
+    screen.blit(pygame.image.load(bombPathList[0]), (128, 0))
+    screen.blit(pygame.image.load(bombPathList[1]), (320, 0))
+    screen.blit(pygame.image.load(bombPathList[2]), (512, 64))
+    screen.blit(pygame.image.load(bombPathList[3]), (512, 64))
+    screen.blit(pygame.image.load(bombPathList[4]), (128, 128))
+    screen.blit(pygame.image.load(bombPathList[5]), (320, 128))
+    screen.blit(pygame.image.load(bombPathList[6]), (512, 192))
+    screen.blit(pygame.image.load(bombPathList[7]), (512, 192))
+    screen.blit(pygame.image.load(bombPathList[8]), (128, 256))
+    screen.blit(pygame.image.load(bombPathList[9]), (320, 256))
 
     # Naiwne poruszanie się robota
     if y < 576:
