@@ -1,5 +1,6 @@
 import pygame
 from mapGeneratorPygame.randBomb import randBomb, bombType
+from ucs.ucsAlgorithm import returnBombPos
 
 # Kolory
 WHITE = (255, 255, 255)
@@ -20,9 +21,21 @@ clock = pygame.time.Clock()
 FPS = 15
 
 # Wylosowane 5 bomb
-bombPathList = randBomb(10)
+bombPathList = randBomb(5)
 # Typy wylosowanych 5 bomb
-bombTypeList = bombType(10)
+bombTypeList = bombType(5)
+
+#bomby
+bomb1 = pygame.image.load(bombPathList[0])
+bomb2 = pygame.image.load(bombPathList[1])
+bomb3 = pygame.image.load(bombPathList[2])
+bomb4 = pygame.image.load(bombPathList[3])
+bomb5 = pygame.image.load(bombPathList[4])
+
+bombPosList = returnBombPos()
+
+
+print(bombPosList[0])
 
 print(bombTypeList)
 
@@ -39,16 +52,11 @@ while not done:
     screen.fill(WHITE)
     screen.blit(saper, (x, y))
 
-    screen.blit(pygame.image.load(bombPathList[0]), (128, 0))
-    screen.blit(pygame.image.load(bombPathList[1]), (320, 0))
-    screen.blit(pygame.image.load(bombPathList[2]), (512, 64))
-    screen.blit(pygame.image.load(bombPathList[3]), (512, 64))
-    screen.blit(pygame.image.load(bombPathList[4]), (128, 128))
-    screen.blit(pygame.image.load(bombPathList[5]), (320, 128))
-    screen.blit(pygame.image.load(bombPathList[6]), (512, 192))
-    screen.blit(pygame.image.load(bombPathList[7]), (512, 192))
-    screen.blit(pygame.image.load(bombPathList[8]), (128, 256))
-    screen.blit(pygame.image.load(bombPathList[9]), (320, 256))
+    screen.blit(bomb1, bombPosList[0])
+    screen.blit(bomb2, bombPosList[1])
+    screen.blit(bomb3, bombPosList[2])
+    screen.blit(bomb4, bombPosList[3])
+    screen.blit(bomb5, bombPosList[4])
 
     # Naiwne poruszanie się robota
     if y < 576:
