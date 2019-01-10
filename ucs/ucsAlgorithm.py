@@ -1,4 +1,8 @@
+from mapGeneratorPygame.setBomb import returnBombAndPos
+
 startPos = (0, 0)
+
+bombMatrix = returnBombAndPos()
 
 # zrob z tego liste
 bombPosList = [(100, 20), (320, 0), (512, 64), (800, 64), (128, 128)]
@@ -17,4 +21,5 @@ bomb5Dist = bombPosList[4][0] + bombPosList[4][1]
 bombDistList = [bomb1Dist, bomb2Dist, bomb3Dist, bomb4Dist, bomb5Dist]
 bombDistList.sort()
 
-print(bombDistList)
+for row in bombMatrix:
+    print(row)

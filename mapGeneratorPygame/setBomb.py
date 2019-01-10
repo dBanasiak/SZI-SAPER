@@ -18,7 +18,6 @@ def randBombPos():
         else:
             print('Field is not empty')
 
-def setBomb():
-    print('setBomb')
-
-randBombPos()
+def returnBombAndPos():
+    randBombPos()
+    return mergedMatrix
