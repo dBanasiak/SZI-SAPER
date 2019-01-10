@@ -3,23 +3,33 @@ from mapGeneratorPygame.setBomb import returnBombAndPos
 startPos = (0, 0)
 
 bombMatrix = returnBombAndPos()
+bombImgPos = []
 
-# zrob z tego liste
-bombPosList = [(100, 20), (320, 0), (512, 64), (800, 64), (128, 128)]
+x = 0
+y = 0
 
-def returnBombPos():
-    return bombPosList
+for row in range(10):
+    bombImgPos.append([])
+    for col in range(10):
+        bombImgPos[row].append(5)
 
-# zrob to petla
-bomb1Dist = bombPosList[0][0] + bombPosList[0][1]
-bomb2Dist = bombPosList[1][0] + bombPosList[1][1]
-bomb3Dist = bombPosList[2][0] + bombPosList[2][1]
-bomb4Dist = bombPosList[3][0] + bombPosList[3][1]
-bomb5Dist = bombPosList[4][0] + bombPosList[4][1]
+for row in bombImgPos:
+    print(row)
 
-# posortuj
-bombDistList = [bomb1Dist, bomb2Dist, bomb3Dist, bomb4Dist, bomb5Dist]
-bombDistList.sort()
+
+# def returnBombPos():
+#     return bombPosList
+#
+# # zrob to petla
+# bomb1Dist = bombPosList[0][0] + bombPosList[0][1]
+# bomb2Dist = bombPosList[1][0] + bombPosList[1][1]
+# bomb3Dist = bombPosList[2][0] + bombPosList[2][1]
+# bomb4Dist = bombPosList[3][0] + bombPosList[3][1]
+# bomb5Dist = bombPosList[4][0] + bombPosList[4][1]
+#
+# # posortuj
+# bombDistList = [bomb1Dist, bomb2Dist, bomb3Dist, bomb4Dist, bomb5Dist]
+# bombDistList.sort()
 
 for row in bombMatrix:
     print(row)

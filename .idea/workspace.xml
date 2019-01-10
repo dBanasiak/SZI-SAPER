@@ -2,6 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d12db078-6829-498b-bf44-23aa17b8b496" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mapGeneratorPygame/emptyMatrix.py" beforeDir="false" afterPath="$PROJECT_DIR$/mapGeneratorPygame/emptyMatrix.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mapGeneratorPygame/setBomb.py" beforeDir="false" afterPath="$PROJECT_DIR$/mapGeneratorPygame/setBomb.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ucs/ucsAlgorithm.py" beforeDir="false" afterPath="$PROJECT_DIR$/ucs/ucsAlgorithm.py" afterDir="false" />
     </list>
@@ -25,11 +27,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/mapGeneratorPygame/emptyMatrix.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="135">
-              <caret line="9" column="26" selection-start-line="9" selection-start-column="26" selection-end-line="9" selection-end-column="26" />
+              <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
             </state>
           </provider>
         </entry>
@@ -37,8 +39,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/mapGeneratorPygame/setBomb.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="266">
-              <caret line="21" column="17" selection-start-line="21" selection-start-column="17" selection-end-line="21" selection-end-column="17" />
+            <state relative-caret-position="206">
+              <caret line="24" column="28" lean-forward="true" selection-start-line="24" selection-start-column="28" selection-end-line="24" selection-end-column="28" />
               <folding>
                 <element signature="e#0#54#0" expanded="true" />
               </folding>
@@ -46,11 +48,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ucs/ucsAlgorithm.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="236">
-              <caret line="17" column="49" lean-forward="true" selection-start-line="17" selection-start-column="49" selection-end-line="17" selection-end-column="49" />
+            <state relative-caret-position="210">
+              <caret line="14" selection-start-line="14" selection-end-line="14" />
             </state>
           </provider>
         </entry>
@@ -74,10 +76,10 @@
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/mapGeneratorPygame/randBomb.py" />
         <option value="$PROJECT_DIR$/mapGeneratorPygame/message.py" />
-        <option value="$PROJECT_DIR$/mapGeneratorPygame/emptyMatrix.py" />
         <option value="$PROJECT_DIR$/mapGeneratorPygame/mapGenerator.py" />
-        <option value="$PROJECT_DIR$/mapGeneratorPygame/setBomb.py" />
         <option value="$PROJECT_DIR$/ucs/ucsAlgorithm.py" />
+        <option value="$PROJECT_DIR$/mapGeneratorPygame/setBomb.py" />
+        <option value="$PROJECT_DIR$/mapGeneratorPygame/emptyMatrix.py" />
       </list>
     </option>
   </component>
@@ -132,7 +134,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.ucsAlgorithm">
+  <component name="RunManager" selected="Python.setBomb">
     <configuration name="emptyMatrix" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="SZI-SAPER" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -240,8 +242,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.ucsAlgorithm" />
         <item itemvalue="Python.setBomb" />
+        <item itemvalue="Python.ucsAlgorithm" />
         <item itemvalue="Python.mapGenerator" />
         <item itemvalue="Python.emptyMatrix" />
         <item itemvalue="Python.imagerec" />
@@ -323,10 +325,17 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/ucs/ucsAlgorithm.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="14" selection-start-line="14" selection-end-line="14" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/mapGeneratorPygame/setBomb.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="266">
-          <caret line="21" column="17" selection-start-line="21" selection-start-column="17" selection-end-line="21" selection-end-column="17" />
+        <state relative-caret-position="206">
+          <caret line="24" column="28" lean-forward="true" selection-start-line="24" selection-start-column="28" selection-end-line="24" selection-end-column="28" />
           <folding>
             <element signature="e#0#54#0" expanded="true" />
           </folding>
@@ -336,14 +345,7 @@
     <entry file="file://$PROJECT_DIR$/mapGeneratorPygame/emptyMatrix.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="135">
-          <caret line="9" column="26" selection-start-line="9" selection-start-column="26" selection-end-line="9" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ucs/ucsAlgorithm.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="236">
-          <caret line="17" column="49" lean-forward="true" selection-start-line="17" selection-start-column="49" selection-end-line="17" selection-end-column="49" />
+          <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
         </state>
       </provider>
     </entry>

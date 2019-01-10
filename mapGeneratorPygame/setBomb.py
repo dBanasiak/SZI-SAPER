@@ -5,6 +5,7 @@ mergedMatrix = emptyMatrix()
 
 def randBombPos():
     i = 0
+    print('\nPositions:')
     while i < 9:
         x = random.randrange(0, 9)
         y = random.randrange(0, 9)
@@ -20,4 +21,9 @@ def randBombPos():
 
 def returnBombAndPos():
     randBombPos()
+    print('\nSet bomb:')
+    for row in mergedMatrix:
+        print(row)
     return mergedMatrix
+
+returnBombAndPos()
