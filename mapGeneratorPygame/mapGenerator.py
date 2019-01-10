@@ -1,6 +1,6 @@
 import pygame
-from mapGeneratorPygame.randBomb import randBomb, bombType
-from ucs.ucsAlgorithm import returnBombPos
+from mapGeneratorPygame.setBomb import printBombAndPos
+from neuralNetwork.imagerec import whatBombIsThis
 
 # Kolory
 WHITE = (255, 255, 255)
@@ -11,8 +11,13 @@ saper = pygame.image.load('saper/saper.png')
 x = 0
 y = 0
 
+# Ścieżka do danych tekstowych dla AI
+exPath = '../neuralNetwork/numArEx.txt'
+# Ścieżka do bazy przykładów dla AI
+bombsPath = '../neuralNetwork/images/bombs/'
+
 # Szerokość i wysokość okna aplikacji
-WINDOW_SIZE = [1024, 640]
+WINDOW_SIZE = [640, 640]
 screen = pygame.display.set_mode(WINDOW_SIZE)
 pygame.display.set_caption("Automatyczny Saper - Mapa")
 pygame.init()
@@ -20,54 +25,32 @@ done = False
 clock = pygame.time.Clock()
 FPS = 15
 
-# Wylosowane 5 bomb
-bombPathList = randBomb(5)
-# Typy wylosowanych 5 bomb
-bombTypeList = bombType(5)
+bombProp = printBombAndPos()
 
-#bomby
-bomb1 = pygame.image.load(bombPathList[0])
-bomb2 = pygame.image.load(bombPathList[1])
-bomb3 = pygame.image.load(bombPathList[2])
-bomb4 = pygame.image.load(bombPathList[3])
-bomb5 = pygame.image.load(bombPathList[4])
+allBombs = []
+i = 0
+for i in range(10):
+    allBombs.append(pygame.image.load(bombProp[i][3]))
 
-bombPosList = returnBombPos()
+bombType = []
 
-
-print(bombPosList[0])
-
-print(bombTypeList)
+i = 0
+for i in range(10):
+    bombType.append(whatBombIsThis(bombProp[i][3], exPath))
+print('\n',bombType)
 
 # Główna pętla
 while not done:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
              done = True
-        # cofnij robota do początku po kliknięciu klawisza z
-        elif event.type == pygame.KEYDOWN and event.key == 122:
-            x = 0
-            y = 0
 
     screen.fill(WHITE)
     screen.blit(saper, (x, y))
 
-    screen.blit(bomb1, bombPosList[0])
-    screen.blit(bomb2, bombPosList[1])
-    screen.blit(bomb3, bombPosList[2])
-    screen.blit(bomb4, bombPosList[3])
-    screen.blit(bomb5, bombPosList[4])
-
-    # Naiwne poruszanie się robota
-    if y < 576:
-        if x < 1024:
-            x += 64
-        if x == 1024:
-            y += 64
-            x = 0
-    if y == 576:
-        if x < 960:
-            x += 64
+    i = 0
+    for i in range(10):
+        screen.blit(allBombs[i], ((bombProp[i][4]), (bombProp[i][5])))
 
     pygame.display.flip()
     clock.tick(FPS)
