@@ -2,19 +2,21 @@ from mapGeneratorPygame.setBomb import returnBombAndPos
 
 startPos = (0, 0)
 
-bombMatrix = returnBombAndPos()
+bombMatrix = returnBombAndPos()[0]
+bombPos = returnBombAndPos()[1]
 bombImgPos = []
+
 
 x = 0
 y = 0
 
-for row in range(10):
-    bombImgPos.append([])
-    for col in range(10):
-        bombImgPos[row].append(5)
-
-for row in bombImgPos:
-    print(row)
+# for row in range(10):
+#     bombImgPos.append([])
+#     for col in range(10):
+#         bombImgPos[row].append(5)
+#
+# for row in bombImgPos:
+#     print(row)
 
 
 # def returnBombPos():
@@ -31,5 +33,7 @@ for row in bombImgPos:
 # bombDistList = [bomb1Dist, bomb2Dist, bomb3Dist, bomb4Dist, bomb5Dist]
 # bombDistList.sort()
 
+print('\nBomb Matrix')
 for row in bombMatrix:
     print(row)
+print('\nPositions on matrix:\n', bombPos)
