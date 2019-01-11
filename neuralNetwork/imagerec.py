@@ -16,6 +16,7 @@ def createExamples(path, exampleFile):
             eiar1 = str(eiar.tolist())
             lineToWrite = str(eachNum) + '::' + eiar1 + '\n'
             numberArrayExamples.write(lineToWrite)
+    numberArrayExamples.close()
 
 
 def threshold(imageArray):
