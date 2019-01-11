@@ -74,3 +74,4 @@ def whatBombIsThis(filePath, examplePath):
         return 'przeciwpiechotna'
     elif x[0][0] == 5:
         return 'przeciwpancerna'
+

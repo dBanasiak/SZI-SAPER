@@ -33,5 +33,5 @@ def printBombAndPos():
     print('\nSet bomb:')
     for row in mergedMatrix:
         print(row)
-    return bombProp
+    return bombProp, mergedMatrix
 

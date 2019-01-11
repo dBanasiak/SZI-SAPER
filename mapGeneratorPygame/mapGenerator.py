@@ -1,6 +1,7 @@
 import pygame
 from mapGeneratorPygame.setBomb import printBombAndPos
-from neuralNetwork.imagerec import whatBombIsThis
+from neuralNetwork.imagerec import whatBombIsThis, createExamples
+import time
 
 # Kolory
 WHITE = (255, 255, 255)
@@ -25,7 +26,8 @@ done = False
 clock = pygame.time.Clock()
 FPS = 15
 
-bombProp = printBombAndPos()
+bombProp = printBombAndPos()[0]
+mapMatrix = printBombAndPos()[1]
 
 allBombs = []
 i = 0
@@ -34,23 +36,33 @@ for i in range(10):
 
 bombType = []
 
-i = 0
-for i in range(10):
-    bombType.append(whatBombIsThis(bombProp[i][3], exPath))
-print('\n',bombType)
+neuralNetworkStop = False
 
 # Główna pętla
 while not done:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
              done = True
-
     screen.fill(WHITE)
-    screen.blit(saper, (x, y))
+
+    for row in mapMatrix:
+        for col in row:
+            if col == 1:
+                screen.blit(saper, (x, y))
+
 
     i = 0
     for i in range(10):
         screen.blit(allBombs[i], ((bombProp[i][4]), (bombProp[i][5])))
+
+
+    if neuralNetworkStop == False:
+        i = 0
+        createExamples(bombsPath, exPath)
+        for i in range(10):
+            bombType.append(whatBombIsThis(bombProp[i][3], exPath))
+        print('\n', bombType)
+        neuralNetworkStop = True
 
     pygame.display.flip()
     clock.tick(FPS)
