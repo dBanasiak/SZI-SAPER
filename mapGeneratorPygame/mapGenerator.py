@@ -48,20 +48,27 @@ while not done:
     for row in mapMatrix:
         for col in row:
             if col == 1:
-                screen.blit(saper, (x, y))
-
+                screen.blit(saper, (x * 64, y * 64))
+                x += 1
+            if x == 10:
+                y += 1
+                x = 0
+        if y == 10 and x == 9:
+            x = 0
+            y = 0
 
     i = 0
     for i in range(10):
         screen.blit(allBombs[i], ((bombProp[i][4]), (bombProp[i][5])))
 
-
     if neuralNetworkStop == False:
         i = 0
         createExamples(bombsPath, exPath)
         for i in range(10):
-            bombType.append(whatBombIsThis(bombProp[i][3], exPath))
-        print('\n', bombType)
+            bombType.append((whatBombIsThis(bombProp[i][3], exPath), bombProp[i][2], bombProp[i][4], bombProp[i][5]))
+            print('Progres skanowania pola minowego: ',10 * len(bombType), '%')
+        for row in bombType:
+            print(row)
         neuralNetworkStop = True
 
     pygame.display.flip()
