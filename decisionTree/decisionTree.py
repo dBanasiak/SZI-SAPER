@@ -230,6 +230,10 @@ def build_tree(rows):
     return Decision_Node(question, true_branch, false_branch)
 
 
+def build_default_tree():
+    return build_tree(training_data)
+
+
 def print_tree(node, spacing=""):
     """World's most elegant tree printing function."""
 
@@ -264,6 +268,10 @@ def classify(row, node):
         return classify(row, node.true_branch)
     else:
         return classify(row, node.false_branch)
+
+
+def simple_classify(row, node):
+    return list(classify(row, node).keys())[0]
 
 
 def print_leaf(counts):

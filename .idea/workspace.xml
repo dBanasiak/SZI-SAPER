@@ -2,8 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d12db078-6829-498b-bf44-23aa17b8b496" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/mapGeneratorPygame/dataRandomGenerator.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/decisionTree/decisionTree.py" beforeDir="false" afterPath="$PROJECT_DIR$/decisionTree/decisionTree.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mapGeneratorPygame/mapGenerator.py" beforeDir="false" afterPath="$PROJECT_DIR$/mapGeneratorPygame/mapGenerator.py" afterDir="false" />
@@ -16,11 +14,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/mapGeneratorPygame/mapGenerator.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="254">
-              <caret line="70" column="80" selection-start-line="70" selection-start-column="80" selection-end-line="70" selection-end-column="80" />
+            <state relative-caret-position="412">
+              <caret line="75" column="49" selection-start-line="75" selection-start-column="49" selection-end-line="75" selection-end-column="49" />
               <folding>
                 <element signature="e#0#13#0" expanded="true" />
               </folding>
@@ -40,11 +38,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/decisionTree/decisionTree.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="4360">
-              <caret line="314" column="46" selection-start-line="314" selection-start-column="42" selection-end-line="314" selection-end-column="46" />
+            <state relative-caret-position="348">
+              <caret line="265" column="39" selection-start-line="265" selection-start-column="39" selection-end-line="265" selection-end-column="39" />
               <folding>
                 <element signature="e#145#182#0" expanded="true" />
               </folding>
@@ -85,7 +83,9 @@
   <component name="FindInProjectRecents">
     <findStrings>
       <find>bombType</find>
+      <find>predictions</find>
       <find>bombProp</find>
+      <find>classify</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -101,9 +101,9 @@
         <option value="$PROJECT_DIR$/ucs/ucsAlgorithm.py" />
         <option value="$PROJECT_DIR$/mapGeneratorPygame/setBomb.py" />
         <option value="$PROJECT_DIR$/neuralNetwork/imagerec.py" />
-        <option value="$PROJECT_DIR$/decisionTree/decisionTree.py" />
         <option value="$PROJECT_DIR$/mapGeneratorPygame/dataRandomGenerator.py" />
         <option value="$PROJECT_DIR$/mapGeneratorPygame/mapGenerator.py" />
+        <option value="$PROJECT_DIR$/decisionTree/decisionTree.py" />
       </list>
     </option>
   </component>
@@ -160,6 +160,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="restartRequiresConfirmation" value="false" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RunDashboard">
@@ -315,7 +316,21 @@
       <option name="project" value="LOCAL" />
       <updated>1547288862043</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Extend bombType">
+      <created>1547292817479</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1547292817479</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Tree better question and training data fix">
+      <created>1547293179601</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1547293179601</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -328,8 +343,8 @@
       <window_info anchor="bottom" id="Event Log" order="0" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="1" />
       <window_info anchor="bottom" id="Find" order="2" weight="0.32861635" />
-      <window_info anchor="bottom" id="Run" order="3" weight="0.28060672" />
-      <window_info active="true" anchor="bottom" id="Debug" order="4" visible="true" weight="0.3997833" />
+      <window_info active="true" anchor="bottom" id="Run" order="3" visible="true" weight="0.28060672" />
+      <window_info anchor="bottom" id="Debug" order="4" weight="0.3997833" />
       <window_info anchor="bottom" id="Cvs" order="5" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="6" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="7" />
@@ -390,7 +405,9 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Code cleaning" />
-    <option name="LAST_COMMIT_MESSAGE" value="Code cleaning" />
+    <MESSAGE value="Extend bombType" />
+    <MESSAGE value="Tree better question and training data fix" />
+    <option name="LAST_COMMIT_MESSAGE" value="Tree better question and training data fix" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/neuralNetwork/images/numbers/1.5.png" />
@@ -436,23 +453,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/neuralNetwork/imagerec.py">
+    <entry file="file://$PROJECT_DIR$/mapGeneratorPygame/setBomb.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="18" column="31" selection-start-line="18" selection-start-column="31" selection-end-line="18" selection-end-column="31" />
-          <folding>
-            <element signature="e#0#21#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/decisionTree/decisionTree.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4360">
-          <caret line="314" column="46" selection-start-line="314" selection-start-column="42" selection-end-line="314" selection-end-column="46" />
-          <folding>
-            <element signature="e#145#182#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="17">
+          <caret line="1" selection-start-line="1" selection-end-line="1" />
         </state>
       </provider>
     </entry>
@@ -466,19 +470,32 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/mapGeneratorPygame/setBomb.py">
+    <entry file="file://$PROJECT_DIR$/neuralNetwork/imagerec.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="1" selection-start-line="1" selection-end-line="1" />
+        <state relative-caret-position="255">
+          <caret line="18" column="31" selection-start-line="18" selection-start-column="31" selection-end-line="18" selection-end-column="31" />
+          <folding>
+            <element signature="e#0#21#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/mapGeneratorPygame/mapGenerator.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="254">
-          <caret line="70" column="80" selection-start-line="70" selection-start-column="80" selection-end-line="70" selection-end-column="80" />
+        <state relative-caret-position="412">
+          <caret line="75" column="49" selection-start-line="75" selection-start-column="49" selection-end-line="75" selection-end-column="49" />
           <folding>
             <element signature="e#0#13#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/decisionTree/decisionTree.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="348">
+          <caret line="265" column="39" selection-start-line="265" selection-start-column="39" selection-end-line="265" selection-end-column="39" />
+          <folding>
+            <element signature="e#145#182#0" expanded="true" />
           </folding>
         </state>
       </provider>

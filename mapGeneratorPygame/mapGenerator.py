@@ -2,6 +2,7 @@ import pygame
 from mapGeneratorPygame.setBomb import printBombAndPos
 from neuralNetwork.imagerec import whatBombIsThis, createExamples
 from mapGeneratorPygame.dataRandomGenerator import getTime, getCost
+from decisionTree.decisionTree import build_default_tree, simple_classify
 import time
 
 # Kolory
@@ -67,10 +68,13 @@ while not done:
         createExamples(bombsPath, exPath)
         for i in range(10):
             whatBombIsIt = whatBombIsThis(bombProp[i][3], exPath)
-            bombType.append((whatBombIsIt, getTime(whatBombIsIt), getCost(whatBombIsIt), bombProp[i][2], bombProp[i][4], bombProp[i][5]))
+            bombType.append((whatBombIsIt, getTime(whatBombIsIt), getCost(whatBombIsIt), bombProp[i][2], bombProp[i][4],
+                             bombProp[i][5]))
             print('Progres skanowania pola minowego: ', 10 * len(bombType), '%')
+        tree = build_default_tree()
         for row in bombType:
-            print(row)
+            priority = simple_classify(row, tree)
+            print(row, ' => ', priority)
         neuralNetworkStop = True
 
     pygame.display.flip()
