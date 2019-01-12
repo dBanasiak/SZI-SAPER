@@ -10,35 +10,34 @@ import sys
 training_data = [
     ['zegarowa', 10, 100000, 1],
     ['zegarowa', 30, 100000, 2],
-    ['zegarowa', 60, 100000, 2],
+    ['zegarowa', 60, 100000, 3],
     ['zegarowa', 10, 10000, 2],
-    ['zegarowa', 30, 10000, 4],
+    ['zegarowa', 30, 10000, 3],
     ['zegarowa', 60, 10000, 4],
-    ['zegarowa', 10, 1000, 2],
+    ['zegarowa', 10, 1000, 3],
     ['zegarowa', 30, 1000, 4],
-    ['zegarowa', 60, 1000, 4],
-    ['dynamit', 5, 100000, 3],
+    ['zegarowa', 60, 1000, 5],
+    ['dynamit', 5, 100000, 1],
+    ['dynamit', 10, 100000, 2],
+    ['dynamit', 15, 100000, 2],
+    ['dynamit', 5, 10000, 2],
     ['dynamit', 10, 10000, 3],
-    ['dynamit', 15, 1000, 5],
-    ['dynamit', 5, 10000, 3],
-    ['dynamit', 10, 1000, 3],
-    ['dynamit', 15, 1000, 5],
-    ['dynamit', 5, 100000, 3],
-    ['dynamit', 10, 10000, 3],
-    ['dynamit', 15, 1000, 5],
+    ['dynamit', 15, 10000, 3],
+    ['dynamit', 5, 1000, 3],
+    ['dynamit', 10, 1000, 4],
+    ['dynamit', 15, 1000, 4],
     ['cieplna', sys.maxsize, 100000, 6],
-    ['cieplna', sys.maxsize, 10000, 6],
-    ['cieplna', sys.maxsize, 1000, 6],
-    ['biologiczna', sys.maxsize, 10000000, 8],
-    ['biologiczna', sys.maxsize, 1000000, 8],
+    ['cieplna', sys.maxsize, 10000, 7],
+    ['cieplna', sys.maxsize, 1000, 8],
+    ['biologiczna', sys.maxsize, 10000000, 6],
+    ['biologiczna', sys.maxsize, 1000000, 7],
     ['biologiczna', sys.maxsize, 100000, 8],
-    ['przeciwpiechotna', sys.maxsize, 100000, 9],
-    ['przeciwpiechotna', sys.maxsize, 10000, 9],
-    ['przeciwpiechotna', sys.maxsize, 1000, 9],
-    ['przeciwpancerna', sys.maxsize, 10000000, 10],
-    ['przeciwpancerna', sys.maxsize, 1000000, 10],
-    ['przeciwpancerna', sys.maxsize, 100000, 10],
-
+    ['przeciwpiechotna', sys.maxsize, 100000, 6],
+    ['przeciwpiechotna', sys.maxsize, 10000, 7],
+    ['przeciwpiechotna', sys.maxsize, 1000, 8],
+    ['przeciwpancerna', sys.maxsize, 10000000, 6],
+    ['przeciwpancerna', sys.maxsize, 1000000, 7],
+    ['przeciwpancerna', sys.maxsize, 100000, 8]
 ]
 
 # Column labels.
@@ -85,7 +84,7 @@ class Question:
         # feature value in this question.
         val = example[self.column]
         if is_numeric(val):
-            return val >= self.value
+            return val <= self.value
         else:
             return val == self.value
 
@@ -94,7 +93,7 @@ class Question:
         # the question in a readable format.
         condition = "=="
         if is_numeric(self.value):
-            condition = ">="
+            condition = "<="
         return "Is %s %s %s?" % (
             header[self.column], condition, str(self.value))
 
@@ -288,36 +287,35 @@ if __name__ == '__main__':
         # typ bomby, ile min do wybuchu, jakie straty spowoduje w zł, priorytet
         ['zegarowa', 10, 100000, 1],
         ['zegarowa', 30, 100000, 2],
-        ['zegarowa', 60, 100000, 2],
+        ['zegarowa', 60, 100000, 3],
         ['zegarowa', 10, 10000, 2],
-        ['zegarowa', 30, 10000, 4],
+        ['zegarowa', 30, 10000, 3],
         ['zegarowa', 60, 10000, 4],
-        ['zegarowa', 10, 1000, 2],
+        ['zegarowa', 10, 1000, 3],
         ['zegarowa', 30, 1000, 4],
-        ['zegarowa', 60, 1000, 4],
-        ['dynamit', 5, 100000, 3],
+        ['zegarowa', 60, 1000, 5],
+        ['dynamit', 5, 100000, 1],
+        ['dynamit', 10, 100000, 2],
+        ['dynamit', 15, 100000, 2],
+        ['dynamit', 5, 10000, 2],
         ['dynamit', 10, 10000, 3],
-        ['dynamit', 15, 1000, 5],
-        ['dynamit', 5, 10000, 3],
-        ['dynamit', 10, 1000, 3],
-        ['dynamit', 15, 1000, 5],
-        ['dynamit', 5, 100000, 3],
-        ['dynamit', 10, 10000, 3],
-        ['dynamit', 15, 1000, 5],
+        ['dynamit', 15, 10000, 3],
+        ['dynamit', 5, 1000, 3],
+        ['dynamit', 10, 1000, 4],
+        ['dynamit', 15, 1000, 4],
         ['cieplna', sys.maxsize, 100000, 6],
-        ['cieplna', sys.maxsize, 10000, 6],
-        ['cieplna', sys.maxsize, 1000, 6],
-        ['biologiczna', sys.maxsize, 10000000, 8],
-        ['biologiczna', sys.maxsize, 1000000, 8],
+        ['cieplna', sys.maxsize, 10000, 7],
+        ['cieplna', sys.maxsize, 1000, 8],
+        ['biologiczna', sys.maxsize, 10000000, 6],
+        ['biologiczna', sys.maxsize, 1000000, 7],
         ['biologiczna', sys.maxsize, 100000, 8],
-        ['przeciwpiechotna', sys.maxsize, 100000, 9],
-        ['przeciwpiechotna', sys.maxsize, 10000, 9],
-        ['przeciwpiechotna', sys.maxsize, 1000, 9],
-        ['przeciwpancerna', sys.maxsize, 10000000, 10],
-        ['przeciwpancerna', sys.maxsize, 1000000, 10],
-        ['przeciwpancerna', sys.maxsize, 100000, 10],
+        ['przeciwpiechotna', sys.maxsize, 100000, 6],
+        ['przeciwpiechotna', sys.maxsize, 10000, 7],
+        ['przeciwpiechotna', sys.maxsize, 1000, 8],
+        ['przeciwpancerna', sys.maxsize, 10000000, 6],
+        ['przeciwpancerna', sys.maxsize, 1000000, 7],
+        ['przeciwpancerna', sys.maxsize, 100000, 8],
         ['bomba z sody oczyszczonej', 1, 10, 11],
-
     ]
 
     for row in testing_data:
