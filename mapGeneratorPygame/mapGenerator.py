@@ -1,6 +1,7 @@
 import pygame
 from mapGeneratorPygame.setBomb import printBombAndPos
 from neuralNetwork.imagerec import whatBombIsThis, createExamples
+from mapGeneratorPygame.dataRandomGenerator import getTime, getCost
 import time
 
 # Kolory
@@ -42,7 +43,7 @@ neuralNetworkStop = False
 while not done:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
-             done = True
+            done = True
     screen.fill(WHITE)
 
     for row in mapMatrix:
@@ -65,8 +66,9 @@ while not done:
         i = 0
         createExamples(bombsPath, exPath)
         for i in range(10):
-            bombType.append((whatBombIsThis(bombProp[i][3], exPath), bombProp[i][2], bombProp[i][4], bombProp[i][5]))
-            print('Progres skanowania pola minowego: ',10 * len(bombType), '%')
+            whatBombIsIt = whatBombIsThis(bombProp[i][3], exPath)
+            bombType.append((whatBombIsIt, getTime(whatBombIsIt), getCost(whatBombIsIt), bombProp[i][2], bombProp[i][4], bombProp[i][5]))
+            print('Progres skanowania pola minowego: ', 10 * len(bombType), '%')
         for row in bombType:
             print(row)
         neuralNetworkStop = True

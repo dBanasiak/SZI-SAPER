@@ -5,7 +5,7 @@ We'll write a Decision Tree Classifier, in pure Python.
 # For Python 2 / 3 compatability
 from __future__ import print_function
 
-import sys;
+import sys
 
 training_data = [
     ['zegarowa', 10, 100000, 1],
