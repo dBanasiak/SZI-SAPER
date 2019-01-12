@@ -84,7 +84,7 @@ class Question:
         # feature value in this question.
         val = example[self.column]
         if is_numeric(val):
-            return val <= self.value
+            return val >= self.value
         else:
             return val == self.value
 
@@ -93,7 +93,7 @@ class Question:
         # the question in a readable format.
         condition = "=="
         if is_numeric(self.value):
-            condition = "<="
+            condition = ">="
         return "Is %s %s %s?" % (
             header[self.column], condition, str(self.value))
 

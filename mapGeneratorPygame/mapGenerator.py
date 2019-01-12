@@ -24,9 +24,12 @@ WINDOW_SIZE = [640, 640]
 screen = pygame.display.set_mode(WINDOW_SIZE)
 pygame.display.set_caption("Automatyczny Saper - Mapa")
 pygame.init()
+pygame.font.init()
 done = False
 clock = pygame.time.Clock()
 FPS = 15
+myFont = pygame.font.SysFont('Comic Sans MS', 30)
+textSurface = []
 
 bombProp = printBombAndPos()[0]
 mapMatrix = printBombAndPos()[1]
@@ -37,11 +40,29 @@ for i in range(10):
     allBombs.append(pygame.image.load(bombProp[i][3]))
 
 bombType = []
+priority = []
 
 neuralNetworkStop = False
 
 # Główna pętla
 while not done:
+
+    if neuralNetworkStop == False:
+        i = 0
+        createExamples(bombsPath, exPath)
+        tree = build_default_tree()
+        for i in range(10):
+            whatBombIsIt = whatBombIsThis(bombProp[i][3], exPath)
+            bombType.append((whatBombIsIt, getTime(whatBombIsIt), getCost(whatBombIsIt), bombProp[i][2], bombProp[i][4],
+                             bombProp[i][5]))
+            print('Progres skanowania pola minowego: ', 10 * len(bombType), '%')
+        for row in bombType:
+            priorityVal = simple_classify(row, tree)
+            textSurface.append(myFont.render(str(priorityVal), False, (0, 255, 17)))
+            priority.append(priorityVal)
+            print(row, ' => ', priorityVal)
+        neuralNetworkStop = True
+
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             done = True
@@ -62,20 +83,7 @@ while not done:
     i = 0
     for i in range(10):
         screen.blit(allBombs[i], ((bombProp[i][4]), (bombProp[i][5])))
-
-    if neuralNetworkStop == False:
-        i = 0
-        createExamples(bombsPath, exPath)
-        for i in range(10):
-            whatBombIsIt = whatBombIsThis(bombProp[i][3], exPath)
-            bombType.append((whatBombIsIt, getTime(whatBombIsIt), getCost(whatBombIsIt), bombProp[i][2], bombProp[i][4],
-                             bombProp[i][5]))
-            print('Progres skanowania pola minowego: ', 10 * len(bombType), '%')
-        tree = build_default_tree()
-        for row in bombType:
-            priority = simple_classify(row, tree)
-            print(row, ' => ', priority)
-        neuralNetworkStop = True
+        screen.blit(textSurface[i], ((bombProp[i][4]) + 16, (bombProp[i][5]) + 16))
 
     pygame.display.flip()
     clock.tick(FPS)
