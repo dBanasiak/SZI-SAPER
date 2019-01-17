@@ -29,9 +29,10 @@ def randBombPos():
 
 def printBombAndPos():
     randBombPos()
-    print('\nBomb properties:\n', bombProp)
-    print('\nSet bomb:')
-    for row in mergedMatrix:
-        print(row)
+    # print('\nBomb properties:\n', bombProp)
+    # print('\nSet bomb:')
+    # for row in mergedMatrix:
+    #     print(row)
     return bombProp, mergedMatrix
+
 

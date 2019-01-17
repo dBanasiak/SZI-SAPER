@@ -2,9 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d12db078-6829-498b-bf44-23aa17b8b496" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/mapGeneratorPygame/app.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/decisionTree/decisionTree.py" beforeDir="false" afterPath="$PROJECT_DIR$/decisionTree/decisionTree.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mapGeneratorPygame/emptyMatrix.py" beforeDir="false" afterPath="$PROJECT_DIR$/mapGeneratorPygame/emptyMatrix.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mapGeneratorPygame/mapGenerator.py" beforeDir="false" afterPath="$PROJECT_DIR$/mapGeneratorPygame/mapGenerator.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mapGeneratorPygame/setBomb.py" beforeDir="false" afterPath="$PROJECT_DIR$/mapGeneratorPygame/setBomb.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/neuralNetwork/imagerec.py" beforeDir="false" afterPath="$PROJECT_DIR$/neuralNetwork/imagerec.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ucs/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/ucs/main.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -14,27 +18,31 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/mapGeneratorPygame/mapGenerator.py">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/mapGeneratorPygame/app.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="211">
-              <caret line="58" column="28" selection-start-line="58" selection-start-column="28" selection-end-line="58" selection-end-column="28" />
+            <state relative-caret-position="30">
+              <caret line="2" selection-start-line="2" selection-end-line="2" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/ucs/main.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="193">
+              <caret line="69" column="37" selection-start-line="69" selection-start-column="37" selection-end-line="69" selection-end-column="37" />
               <folding>
-                <element signature="e#0#13#0" expanded="true" />
+                <element signature="e#0#11#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/decisionTree/decisionTree.py">
+        <entry file="file://$PROJECT_DIR$/ucs/graph.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="166">
-              <caret line="17" column="29" selection-start-line="17" selection-start-column="29" selection-end-line="17" selection-end-column="29" />
-              <folding>
-                <element signature="e#145#182#0" expanded="true" />
-              </folding>
-            </state>
+            <state relative-caret-position="-630" />
           </provider>
         </entry>
       </file>
@@ -64,13 +72,16 @@
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/mapGeneratorPygame/randBomb.py" />
         <option value="$PROJECT_DIR$/mapGeneratorPygame/message.py" />
-        <option value="$PROJECT_DIR$/mapGeneratorPygame/emptyMatrix.py" />
         <option value="$PROJECT_DIR$/ucs/ucsAlgorithm.py" />
-        <option value="$PROJECT_DIR$/mapGeneratorPygame/setBomb.py" />
-        <option value="$PROJECT_DIR$/neuralNetwork/imagerec.py" />
         <option value="$PROJECT_DIR$/mapGeneratorPygame/dataRandomGenerator.py" />
-        <option value="$PROJECT_DIR$/mapGeneratorPygame/mapGenerator.py" />
         <option value="$PROJECT_DIR$/decisionTree/decisionTree.py" />
+        <option value="$PROJECT_DIR$/mapGeneratorPygame/importBombProps.py" />
+        <option value="$PROJECT_DIR$/neuralNetwork/imagerec.py" />
+        <option value="$PROJECT_DIR$/mapGeneratorPygame/app.py" />
+        <option value="$PROJECT_DIR$/mapGeneratorPygame/mapGenerator.py" />
+        <option value="$PROJECT_DIR$/mapGeneratorPygame/setBomb.py" />
+        <option value="$PROJECT_DIR$/mapGeneratorPygame/emptyMatrix.py" />
+        <option value="$PROJECT_DIR$/ucs/main.py" />
       </list>
     </option>
   </component>
@@ -84,7 +95,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -105,6 +115,11 @@
             <path>
               <item name="SZI-SAPER" type="b2602c69:ProjectViewProjectNode" />
               <item name="SZI-SAPER" type="462c0819:PsiDirectoryNode" />
+              <item name="neuralNetwork" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SZI-SAPER" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SZI-SAPER" type="462c0819:PsiDirectoryNode" />
               <item name="ucs" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
@@ -112,6 +127,7 @@
         </subPane>
       </pane>
       <pane id="Course" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -131,7 +147,28 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.mapGenerator">
+  <component name="RunManager" selected="Python.main">
+    <configuration name="app" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="SZI-SAPER" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/mapGeneratorPygame" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/mapGeneratorPygame/app.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="decisionTree" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="SZI-SAPER" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -174,6 +211,27 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="main" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="SZI-SAPER" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/ucs" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/ucs/main.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="mapGenerator" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="SZI-SAPER" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -195,55 +253,20 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="setBomb" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="SZI-SAPER" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/mapGeneratorPygame" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/mapGeneratorPygame/setBomb.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="ucsAlgorithm" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="SZI-SAPER" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/ucs" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/ucs/ucsAlgorithm.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
+    <list>
+      <item itemvalue="Python.decisionTree" />
+      <item itemvalue="Python.imagerec" />
+      <item itemvalue="Python.mapGenerator" />
+      <item itemvalue="Python.main" />
+      <item itemvalue="Python.app" />
+    </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.main" />
+        <item itemvalue="Python.app" />
         <item itemvalue="Python.mapGenerator" />
         <item itemvalue="Python.decisionTree" />
         <item itemvalue="Python.imagerec" />
-        <item itemvalue="Python.setBomb" />
-        <item itemvalue="Python.ucsAlgorithm" />
       </list>
     </recent_temporary>
   </component>
@@ -297,16 +320,16 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <frame x="0" y="27" width="1366" height="741" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Favorites" order="0" side_tool="true" />
-      <window_info content_ui="combo" id="Project" order="1" visible="true" weight="0.09589041" />
+      <window_info content_ui="combo" id="Project" order="1" visible="true" weight="0.22189128" />
       <window_info id="Structure" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Event Log" order="0" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="1" />
       <window_info anchor="bottom" id="Find" order="2" weight="0.32861635" />
-      <window_info active="true" anchor="bottom" id="Run" order="3" visible="true" weight="0.27735645" />
+      <window_info active="true" anchor="bottom" id="Run" order="3" visible="true" weight="0.331761" />
       <window_info anchor="bottom" id="Debug" order="4" weight="0.4037199" />
       <window_info anchor="bottom" id="Cvs" order="5" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="6" weight="0.4" />
@@ -314,11 +337,29 @@
       <window_info anchor="bottom" id="Version Control" order="8" weight="0.32827735" />
       <window_info anchor="bottom" id="Educational.CheckDetails" order="9" />
       <window_info anchor="bottom" id="Terminal" order="10" weight="0.2524377" />
-      <window_info anchor="bottom" id="Python Console" order="11" weight="0.32603937" />
+      <window_info anchor="bottom" id="Python Console" order="11" weight="0.3254717" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
     </layout>
+    <layout-to-restore>
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.17349218" />
+      <window_info id="Structure" order="1" weight="0.25" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32861635" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.28144655" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Version Control" order="7" weight="0.32861635" />
+      <window_info anchor="bottom" id="Educational.CheckDetails" order="8" />
+      <window_info anchor="bottom" id="Terminal" order="9" weight="0.25314465" />
+      <window_info anchor="bottom" id="Python Console" order="10" weight="0.32704404" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+    </layout-to-restore>
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -345,6 +386,20 @@
         </entry>
       </map>
     </option>
+    <option name="RECENT_FILTERS">
+      <map>
+        <entry key="Branch">
+          <value>
+            <list />
+          </value>
+        </entry>
+        <entry key="User">
+          <value>
+            <list />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Code cleaning" />
@@ -352,6 +407,17 @@
     <MESSAGE value="Tree better question and training data fix" />
     <MESSAGE value="Set priority to bombs" />
     <option name="LAST_COMMIT_MESSAGE" value="Set priority to bombs" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/ucs/main.py</url>
+          <line>82</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/neuralNetwork/images/numbers/1.5.png" />
@@ -373,34 +439,12 @@
     <entry file="file://$PROJECT_DIR$/mapGeneratorPygame/message" />
     <entry file="file://$PROJECT_DIR$/mapGeneratorPygame/message.py" />
     <entry file="file://$PROJECT_DIR$/mapGeneratorPygame/randBomb.py" />
-    <entry file="file://$PROJECT_DIR$/ucs/ucsAlgorithm.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/mapGeneratorPygame/emptyMatrix.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="30" selection-start-line="5" selection-start-column="30" selection-end-line="5" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/neuralNetwork/numArEx.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="765">
-          <caret line="45" column="49" selection-start-line="45" selection-start-column="49" selection-end-line="48" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/ucs/ucsAlgorithm.py" />
+    <entry file="file://$PROJECT_DIR$/neuralNetwork/numArEx.txt" />
     <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state>
           <caret column="19" selection-start-column="19" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/mapGeneratorPygame/setBomb.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="1" selection-start-line="1" selection-end-line="1" />
         </state>
       </provider>
     </entry>
@@ -414,32 +458,75 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/neuralNetwork/imagerec.py">
+    <entry file="file://$PROJECT_DIR$/mapGeneratorPygame/importBombProps.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="18" column="31" selection-start-line="18" selection-start-column="31" selection-end-line="18" selection-end-column="31" />
+        <state relative-caret-position="105">
+          <caret line="7" column="22" selection-start-line="7" selection-start-column="22" selection-end-line="7" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ucs/graph.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-630" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mapGeneratorPygame/emptyMatrix.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" column="25" selection-start-line="8" selection-start-column="25" selection-end-line="8" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mapGeneratorPygame/mapGenerator.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="133">
+          <caret line="80" column="27" lean-forward="true" selection-start-line="80" selection-start-column="27" selection-end-line="80" selection-end-column="27" />
           <folding>
-            <element signature="e#0#21#0" expanded="true" />
+            <element signature="e#0#13#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/decisionTree/decisionTree.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="166">
-          <caret line="17" column="29" selection-start-line="17" selection-start-column="29" selection-end-line="17" selection-end-column="29" />
+        <state relative-caret-position="-8">
+          <caret line="101" column="28" lean-forward="true" selection-start-line="101" selection-start-column="28" selection-end-line="101" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/neuralNetwork/imagerec.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" column="31" selection-start-line="3" selection-start-column="31" selection-end-line="3" selection-end-column="31" />
           <folding>
-            <element signature="e#145#182#0" expanded="true" />
+            <element signature="e#0#21#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/mapGeneratorPygame/mapGenerator.py">
+    <entry file="file://$PROJECT_DIR$/mapGeneratorPygame/setBomb.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="211">
-          <caret line="58" column="28" selection-start-line="58" selection-start-column="28" selection-end-line="58" selection-end-column="28" />
+        <state relative-caret-position="178">
+          <caret line="31" selection-start-line="31" selection-end-line="34" selection-end-column="20" />
           <folding>
-            <element signature="e#0#13#0" expanded="true" />
+            <element signature="e#0#54#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mapGeneratorPygame/app.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" selection-start-line="2" selection-end-line="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ucs/main.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="193">
+          <caret line="69" column="37" selection-start-line="69" selection-start-column="37" selection-end-line="69" selection-end-column="37" />
+          <folding>
+            <element signature="e#0#11#0" expanded="true" />
           </folding>
         </state>
       </provider>

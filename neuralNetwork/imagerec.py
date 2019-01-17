@@ -2,7 +2,6 @@ from PIL import Image
 import numpy as np
 import functools
 from collections import Counter
-from mapGeneratorPygame.setBomb import printBombAndPos
 
 
 def createExamples(path, exampleFile):

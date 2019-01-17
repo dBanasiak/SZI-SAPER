@@ -1,15 +1,17 @@
 import time
 from ucs.graph import *
 from ucs.priority_queue import *
-from neuralNetwork.imagerec import returnBombTypeAndPos
+from mapGeneratorPygame.mapGenerator import returnMapWithBombs
 
 graphNodes = []
+bombMaps = returnMapWithBombs()[0]
+bombMatrix = returnMapWithBombs()[1]
 
 def run(graph, key_node_start, key_node_goal, verbose=False, time_sleep=0):
 	if key_node_start not in graph.getNodes() or key_node_goal not in graph.getNodes():
 		print('Error: key_node_start \'%s\' or key_node_goal \'%s\' not exists!!' % (key_node_start, key_node_goal))
 	else:
-		# UCS uses priority queue, priority is the cumulative cost (smaller cost)
+		# UCS uses priority queue, priority is the cumulative cost (smaller cost)
 		queue = PriorityQueue()
 
 		# expands initial node
@@ -54,31 +56,49 @@ def run(graph, key_node_start, key_node_goal, verbose=False, time_sleep=0):
 		else:
 			print('\nUnfulfilled goal.\n')
 
+matrixGraph = Graph()
+
+x, y = 0, 0
+for row in bombMatrix:
+	for col in row:
+		matrixGraph.addNode((x, y))
+		x += 1
+		if x == 9:
+			y += 1
+			x = 0
+		if y == 9 and x == 9:
+			print('koniec dodawania')
+
+x, y = 0, 0
+for row in bombMatrix:
+	for col in row:
+		matrixGraph.connect((x, y), (x + 1, y), 1)
+		matrixGraph.connect((x, y), (x, y + 1), 2)
+		if x == 9:
+			y += 1
+			x = 0
+		if y == 9 and x == 9:
+			print('koniec laczenia')
+
+print('dupaaaaaaa', matrixGraph.getSuccessors((0, 0)), '\n\n\n')
+
+
 if __name__ == "__main__":
 
-	graphNodesTypes = returnBombTypeAndPos()
 	# build the graph...
 	# adds nodes in the graph
 	graph = Graph()
 	graph.addNode('S') # start sapera
 
-	print(returnBombTypeAndPos()[1][0])
-
-	i=0
+	i = 0
 	for i in range(10):
-		graph.addNode(returnBombTypeAndPos()[i][0])
+		graph.addNode(bombMaps[i])
 
-	graph.addNode('a')
-	graph.addNode('b')
-	graph.addNode('c')
-	graph.addNode('d')
-	graph.addNode('e')
-	graph.addNode('f')
 	graph.addNode('G') # goal
-	graph.addNode('h')
-	graph.addNode('p')
-	graph.addNode('q')
-	graph.addNode('r')
+
+	for nodes in graph.nodes:
+		print(nodes)
+
 	# linking the nodes
 	graph.connect('S', 'd', 3)
 	graph.connect('S', 'e', 9)

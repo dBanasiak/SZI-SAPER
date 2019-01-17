@@ -7,7 +7,4 @@ def emptyMatrix():
             emptyMatrix[row].append(0)
 
     emptyMatrix[0][0] = 1
-    print('\nEmpty matrix:')
-    for row in emptyMatrix:
-        print(row)
     return emptyMatrix
