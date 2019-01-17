@@ -59,28 +59,20 @@ def run(graph, key_node_start, key_node_goal, verbose=False, time_sleep=0):
 matrixGraph = Graph()
 
 x, y = 0, 0
-for row in bombMatrix:
-	for col in row:
+for x in range(10):
+	for y in range(10):
 		matrixGraph.addNode((x, y))
-		x += 1
-		if x == 9:
-			y += 1
-			x = 0
-		if y == 9 and x == 9:
-			print('koniec dodawania')
 
 x, y = 0, 0
-for row in bombMatrix:
-	for col in row:
+for x in range(10):
+	for y in range(10):
 		matrixGraph.connect((x, y), (x + 1, y), 1)
 		matrixGraph.connect((x, y), (x, y + 1), 2)
-		if x == 9:
-			y += 1
-			x = 0
-		if y == 9 and x == 9:
-			print('koniec laczenia')
 
-print('dupaaaaaaa', matrixGraph.getSuccessors((0, 0)), '\n\n\n')
+i, j = 0,0
+for i in range(10):
+	for j in range(10):
+		print(matrixGraph.getSuccessors((i, j)), '\n')
 
 
 if __name__ == "__main__":

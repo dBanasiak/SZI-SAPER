@@ -2,12 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d12db078-6829-498b-bf44-23aa17b8b496" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/mapGeneratorPygame/app.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mapGeneratorPygame/emptyMatrix.py" beforeDir="false" afterPath="$PROJECT_DIR$/mapGeneratorPygame/emptyMatrix.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mapGeneratorPygame/mapGenerator.py" beforeDir="false" afterPath="$PROJECT_DIR$/mapGeneratorPygame/mapGenerator.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mapGeneratorPygame/setBomb.py" beforeDir="false" afterPath="$PROJECT_DIR$/mapGeneratorPygame/setBomb.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/neuralNetwork/imagerec.py" beforeDir="false" afterPath="$PROJECT_DIR$/neuralNetwork/imagerec.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ucs/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/ucs/main.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -30,8 +24,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/ucs/main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="193">
-              <caret line="69" column="37" selection-start-line="69" selection-start-column="37" selection-end-line="69" selection-end-column="37" />
+            <state relative-caret-position="165">
+              <caret line="74" column="14" selection-start-line="74" selection-start-column="14" selection-end-line="74" selection-end-column="14" />
               <folding>
                 <element signature="e#0#11#0" expanded="true" />
               </folding>
@@ -336,7 +330,7 @@
       <window_info anchor="bottom" id="TODO" order="7" />
       <window_info anchor="bottom" id="Version Control" order="8" weight="0.32827735" />
       <window_info anchor="bottom" id="Educational.CheckDetails" order="9" />
-      <window_info anchor="bottom" id="Terminal" order="10" weight="0.2524377" />
+      <window_info anchor="bottom" id="Terminal" order="10" weight="0.25157234" />
       <window_info anchor="bottom" id="Python Console" order="11" weight="0.3254717" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -413,7 +407,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/ucs/main.py</url>
-          <line>82</line>
+          <line>74</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
       </breakpoints>
@@ -523,8 +517,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/ucs/main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="193">
-          <caret line="69" column="37" selection-start-line="69" selection-start-column="37" selection-end-line="69" selection-end-column="37" />
+        <state relative-caret-position="165">
+          <caret line="74" column="14" selection-start-line="74" selection-start-column="14" selection-end-line="74" selection-end-column="14" />
           <folding>
             <element signature="e#0#11#0" expanded="true" />
           </folding>
