@@ -34,6 +34,7 @@ textSurface = []
 bombProp = printBombAndPos()[0]
 mapMatrix = printBombAndPos()[1]
 
+
 allBombs = []
 i = 0
 for i in range(10):
@@ -84,6 +85,9 @@ while not done:
     for i in range(10):
         screen.blit(allBombs[i], ((bombProp[i][4]), (bombProp[i][5])))
         screen.blit(textSurface[i], ((bombProp[i][4]) + 16, (bombProp[i][5]) + 16))
+
+    for i in range(4):
+        screen.blit(allBombs[i], ((bombProp[i][4]), (bombProp[i][5])))
 
     pygame.display.flip()
     clock.tick(FPS)
