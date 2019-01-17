@@ -69,7 +69,7 @@ for x in range(10):
 		matrixGraph.connect((x, y), (x + 1, y), 1)
 		matrixGraph.connect((x, y), (x, y + 1), 2)
 
-i, j = 0,0
+i, j = 0, 0
 for i in range(10):
 	for j in range(10):
 		print(matrixGraph.getSuccessors((i, j)), '\n')
