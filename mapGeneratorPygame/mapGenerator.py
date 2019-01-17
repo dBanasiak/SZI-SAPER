@@ -8,6 +8,10 @@ bombProp = printBombAndPos()[0]
 mapMatrix = printBombAndPos()[1]
 
 bombsForUCS = []
+allBombs = []
+i = 0
+for i in range(10):
+    allBombs.append(pygame.image.load(bombProp[i][3]))
 
 def returnMapWithBombs():
     for i in range(10):
@@ -94,6 +98,8 @@ def app():
             screen.blit(allBombs[i], ((bombProp[i][4]), (bombProp[i][5])))
             screen.blit(textSurface[i], ((bombProp[i][4]) + 16, (bombProp[i][5]) + 16))
 
+        for i in range(4):
+            screen.blit(allBombs[i], ((bombProp[i][4]), (bombProp[i][5])))
+
         pygame.display.flip()
         clock.tick(FPS)
-
