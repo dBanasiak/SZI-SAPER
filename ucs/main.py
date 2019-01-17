@@ -5,8 +5,10 @@
 # Author: Marcos Castro
 
 import time
-from graph import *
-from priority_queue import *
+from ucs.graph import *
+from ucs.priority_queue import *
+
+graphNodes = []
 
 def run(graph, key_node_start, key_node_goal, verbose=False, time_sleep=0):
 	if key_node_start not in graph.getNodes() or key_node_goal not in graph.getNodes():
@@ -38,6 +40,7 @@ def run(graph, key_node_start, key_node_goal, verbose=False, time_sleep=0):
 			if verbose:
 				# shows a friendly message
 				print('Expands node \'%s\' with cumulative cost %s ...' % (key_current_node, cost_node))
+				graphNodes.append((key_current_node, cost_node))
 				time.sleep(time_sleep)
 
 			# get all successors of key_current_node
@@ -51,9 +54,10 @@ def run(graph, key_node_start, key_node_goal, verbose=False, time_sleep=0):
 
 		if(reached_goal):
 			print('\nReached goal! Cost: %s\n' % cumulative_cost_goal)
+			for row in graphNodes:
+				print(row)
 		else:
 			print('\nUnfulfilled goal.\n')
-
 
 if __name__ == "__main__":
 
