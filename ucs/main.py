@@ -1,12 +1,7 @@
-# encoding:utf-8
-
-# This file implements the Uniform Cost Search (UCS) algorithm
-# Explanation of UCS algorithm: https://www.youtube.com/watch?v=AaKEW_mVBtg
-# Author: Marcos Castro
-
 import time
 from ucs.graph import *
 from ucs.priority_queue import *
+from neuralNetwork.imagerec import returnBombTypeAndPos
 
 graphNodes = []
 
@@ -61,10 +56,18 @@ def run(graph, key_node_start, key_node_goal, verbose=False, time_sleep=0):
 
 if __name__ == "__main__":
 
+	graphNodesTypes = returnBombTypeAndPos()
 	# build the graph...
 	# adds nodes in the graph
 	graph = Graph()
-	graph.addNode('S') # start
+	graph.addNode('S') # start sapera
+
+	print(returnBombTypeAndPos()[1][0])
+
+	i=0
+	for i in range(10):
+		graph.addNode(returnBombTypeAndPos()[i][0])
+
 	graph.addNode('a')
 	graph.addNode('b')
 	graph.addNode('c')

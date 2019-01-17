@@ -2,6 +2,7 @@ from PIL import Image
 import numpy as np
 import functools
 from collections import Counter
+from mapGeneratorPygame.setBomb import printBombAndPos
 
 
 def createExamples(path, exampleFile):
@@ -76,3 +77,23 @@ def whatBombIsThis(filePath, examplePath):
     elif x[0][0] == 5:
         return 'przeciwpancerna'
 
+bombType = []
+
+def runNeuralNetwork():
+    bombProp = printBombAndPos()[0]
+    # Ścieżka do danych tekstowych dla AI
+    exPath = '../neuralNetwork/numArEx.txt'
+    # Ścieżka do bazy przykładów dla AI
+    bombsPath = '../neuralNetwork/images/bombs/'
+
+    createExamples(bombsPath, exPath)
+    i = 0
+    for i in range(10):
+        bombType.append((whatBombIsThis(bombProp[i][3], exPath), bombProp[i][2], bombProp[i][4], bombProp[i][5]))
+        print('Progres skanowania pola minowego: ',10 * len(bombType), '%')
+
+def returnBombTypeAndPos():
+    return  bombType
+
+runNeuralNetwork()
+returnBombTypeAndPos()
