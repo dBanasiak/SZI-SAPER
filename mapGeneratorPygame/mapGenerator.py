@@ -3,91 +3,103 @@ from mapGeneratorPygame.setBomb import printBombAndPos
 from neuralNetwork.imagerec import whatBombIsThis, createExamples
 from mapGeneratorPygame.dataRandomGenerator import getTime, getCost
 from decisionTree.decisionTree import build_default_tree, simple_classify
-import time
-
-# Kolory
-WHITE = (255, 255, 255)
-RED = (255, 0, 0)
-
-# Saper
-saper = pygame.image.load('saper/saper.png')
-x = 0
-y = 0
-
-# Ścieżka do danych tekstowych dla AI
-exPath = '../neuralNetwork/numArEx.txt'
-# Ścieżka do bazy przykładów dla AI
-bombsPath = '../neuralNetwork/images/bombs/'
-
-# Szerokość i wysokość okna aplikacji
-WINDOW_SIZE = [640, 640]
-screen = pygame.display.set_mode(WINDOW_SIZE)
-pygame.display.set_caption("Automatyczny Saper - Mapa")
-pygame.init()
-pygame.font.init()
-done = False
-clock = pygame.time.Clock()
-FPS = 15
-myFont = pygame.font.SysFont('Comic Sans MS', 30)
-textSurface = []
 
 bombProp = printBombAndPos()[0]
 mapMatrix = printBombAndPos()[1]
 
-
+bombsForUCS = []
 allBombs = []
 i = 0
 for i in range(10):
     allBombs.append(pygame.image.load(bombProp[i][3]))
 
-bombType = []
-priority = []
+def returnMapWithBombs():
+    for i in range(10):
+        bombsForUCS.append((bombProp[i][0], bombProp[i][1], bombProp[i][2]))
+    return bombsForUCS, mapMatrix
 
-neuralNetworkStop = False
+def app():
+    # Kolory
+    WHITE = (255, 255, 255)
+    RED = (255, 0, 0)
 
-# Główna pętla
-while not done:
+    # Saper
+    saper = pygame.image.load('saper/saper.png')
+    x = 0
+    y = 0
 
-    if neuralNetworkStop == False:
-        i = 0
-        createExamples(bombsPath, exPath)
-        tree = build_default_tree()
-        for i in range(10):
-            whatBombIsIt = whatBombIsThis(bombProp[i][3], exPath)
-            bombType.append((whatBombIsIt, getTime(whatBombIsIt), getCost(whatBombIsIt), bombProp[i][2], bombProp[i][4],
-                             bombProp[i][5]))
-            print('Progres skanowania pola minowego: ', 10 * len(bombType), '%')
-        for row in bombType:
-            priorityVal = simple_classify(row, tree)
-            textSurface.append(myFont.render(str(priorityVal), False, (0, 255, 17)))
-            priority.append(priorityVal)
-            print(row, ' => ', priorityVal)
-        neuralNetworkStop = True
+    # Szerokość i wysokość okna aplikacji
+    WINDOW_SIZE = [640, 640]
+    screen = pygame.display.set_mode(WINDOW_SIZE)
+    pygame.display.set_caption("Automatyczny Saper - Mapa")
+    pygame.init()
+    pygame.font.init()
+    done = False
+    clock = pygame.time.Clock()
+    FPS = 15
+    myFont = pygame.font.SysFont('Comic Sans MS', 30)
+    textSurface = []
 
-    for event in pygame.event.get():
-        if event.type == pygame.QUIT:
-            done = True
-    screen.fill(WHITE)
+    # Ścieżka do danych tekstowych dla AI
+    exPath = '../neuralNetwork/numArEx.txt'
+    # Ścieżka do bazy przykładów dla AI
+    bombsPath = '../neuralNetwork/images/bombs/'
 
-    for row in mapMatrix:
-        for col in row:
-            if col == 1:
-                screen.blit(saper, (x * 64, y * 64))
-                x += 1
-            if x == 10:
-                y += 1
-                x = 0
-        if y == 10 and x == 9:
-            x = 0
-            y = 0
+    bombType = []
 
+    allBombs = []
     i = 0
     for i in range(10):
-        screen.blit(allBombs[i], ((bombProp[i][4]), (bombProp[i][5])))
-        screen.blit(textSurface[i], ((bombProp[i][4]) + 16, (bombProp[i][5]) + 16))
+        allBombs.append(pygame.image.load(bombProp[i][3]))
+    bombType = []
+    priority = []
 
-    for i in range(4):
-        screen.blit(allBombs[i], ((bombProp[i][4]), (bombProp[i][5])))
+    neuralNetworkStop = False
 
-    pygame.display.flip()
-    clock.tick(FPS)
+    # Główna pętla
+    while not done:
+
+        if neuralNetworkStop == False:
+            i = 0
+            createExamples(bombsPath, exPath)
+            tree = build_default_tree()
+            for i in range(10):
+                whatBombIsIt = whatBombIsThis(bombProp[i][3], exPath)
+                bombType.append((whatBombIsIt, getTime(whatBombIsIt), getCost(whatBombIsIt), bombProp[i][2], bombProp[i][4],
+                                 bombProp[i][5]))
+                print('Progres skanowania pola minowego: ', 10 * len(bombType), '%')
+            for row in bombType:
+                priorityVal = simple_classify(row, tree)
+                textSurface.append(myFont.render(str(priorityVal), False, (0, 255, 17)))
+                priority.append(priorityVal)
+                print(row, ' => ', priorityVal)
+            neuralNetworkStop = True
+
+
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                done = True
+        screen.fill(WHITE)
+
+        for row in mapMatrix:
+            for col in row:
+                if col == 1:
+                    screen.blit(saper, (x * 64, y * 64))
+                    x += 1
+                if x == 10:
+                    y += 1
+                    x = 0
+            if y == 10 and x == 9:
+                x = 0
+                y = 0
+
+        i = 0
+        for i in range(10):
+            screen.blit(allBombs[i], ((bombProp[i][4]), (bombProp[i][5])))
+            screen.blit(textSurface[i], ((bombProp[i][4]) + 16, (bombProp[i][5]) + 16))
+
+        for i in range(4):
+            screen.blit(allBombs[i], ((bombProp[i][4]), (bombProp[i][5])))
+
+        pygame.display.flip()
+        clock.tick(FPS)

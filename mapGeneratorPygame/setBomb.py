@@ -46,25 +46,8 @@ def randObstaclePos():
             i += 1
             obstacleProp.append((x, y, obstacle, bombPathArray[obstacle], x * 64, y * 64, i))
 
-randBombPos()
-randObstaclePos()
-print('\nZ przeszkodami:')
-for row in mergedMatrix:
-    print(row)
 
 def printBombAndPos():
     randBombPos()
-    print('\nBomb properties:\n', bombProp)
-    print('\nSet bomb:')
-    for row in mergedMatrix:
-        print(row)
     return bombProp, mergedMatrix
-
-# def printObstacleAndPos():
-#     randObstaclePos()
-#     print('\nObstacle properties:\n', obstacleProp)
-#     print('\nSet obstacle:')
-#     for row in mergedMatrix:
-#         print(row)
-#     return obstacleProp, mergedMatrix
 
