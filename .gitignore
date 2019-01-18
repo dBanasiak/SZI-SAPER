@@ -2,7 +2,7 @@
 __pycache__/
 *.py[cod]
 *$py.class
-.idea
+.idea/
 
 # C extensions
 *.so
@@ -106,7 +106,8 @@ venv.bak/
 
 node_modules
 build
-npm-debug.log
+npm-debug.log<<<<<<< HEAD
+.idea
 .env
 .DS_Store
 

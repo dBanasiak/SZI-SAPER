@@ -1,14 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d12db078-6829-498b-bf44-23aa17b8b496" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/SZI-SAPER.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/SZI-SAPER.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mapGeneratorPygame/setBomb.py" beforeDir="false" afterPath="$PROJECT_DIR$/mapGeneratorPygame/setBomb.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ucs/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/ucs/main.py" afterDir="false" />
-    </list>
+    <list default="true" id="d12db078-6829-498b-bf44-23aa17b8b496" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,6 +39,15 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="301">
+              <caret line="109" column="5" selection-start-line="109" selection-start-column="5" selection-end-line="109" selection-end-column="5" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ucs/main.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="172">
@@ -92,11 +94,11 @@
         <option value="$PROJECT_DIR$/ucs/ucsAlgorithm.py" />
         <option value="$PROJECT_DIR$/neuralNetwork/imagerec.py" />
         <option value="$PROJECT_DIR$/mapGeneratorPygame/dataRandomGenerator.py" />
-        <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/decisionTree/decisionTree.py" />
         <option value="$PROJECT_DIR$/mapGeneratorPygame/mapGenerator.py" />
         <option value="$PROJECT_DIR$/mapGeneratorPygame/setBomb.py" />
         <option value="$PROJECT_DIR$/ucs/main.py" />
+        <option value="$PROJECT_DIR$/.gitignore" />
       </list>
     </option>
   </component>
@@ -117,26 +119,6 @@
             <path>
               <item name="SZI-SAPER" type="b2602c69:ProjectViewProjectNode" />
               <item name="SZI-SAPER" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SZI-SAPER" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SZI-SAPER" type="462c0819:PsiDirectoryNode" />
-              <item name="decisionTree" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SZI-SAPER" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SZI-SAPER" type="462c0819:PsiDirectoryNode" />
-              <item name="mapGeneratorPygame" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SZI-SAPER" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SZI-SAPER" type="462c0819:PsiDirectoryNode" />
-              <item name="neuralNetwork" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SZI-SAPER" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SZI-SAPER" type="462c0819:PsiDirectoryNode" />
-              <item name="ucs" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -347,22 +329,21 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="27" width="1366" height="741" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="Favorites" order="0" side_tool="true" />
-      <window_info content_ui="combo" id="Project" order="1" visible="true" weight="0.22189128" />
+      <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.22189128" />
       <window_info id="Structure" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Event Log" order="0" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="1" />
       <window_info anchor="bottom" id="Find" order="2" weight="0.32861635" />
-      <window_info active="true" anchor="bottom" id="Run" order="3" visible="true" weight="0.34119496" />
+      <window_info anchor="bottom" id="Run" order="3" weight="0.34119496" />
       <window_info anchor="bottom" id="Debug" order="4" weight="0.4037199" />
       <window_info anchor="bottom" id="Cvs" order="5" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="6" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="7" />
       <window_info anchor="bottom" id="Version Control" order="8" weight="0.32827735" />
       <window_info anchor="bottom" id="Educational.CheckDetails" order="9" />
-      <window_info anchor="bottom" id="Terminal" order="10" weight="0.25157234" />
+      <window_info anchor="bottom" id="Terminal" order="10" visible="true" weight="0.2507837" />
       <window_info anchor="bottom" id="Python Console" order="11" weight="0.32603937" />
       <window_info anchor="bottom" id="Docker" order="12" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="13" />
@@ -490,13 +471,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="6" selection-start-line="4" selection-start-column="6" selection-end-line="4" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/decisionTree/decisionTree.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="259">
@@ -534,6 +508,13 @@
           <folding>
             <element signature="e#0#11#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="301">
+          <caret line="109" column="5" selection-start-line="109" selection-start-column="5" selection-end-line="109" selection-end-column="5" />
         </state>
       </provider>
     </entry>
