@@ -2,10 +2,13 @@ import time
 from ucs.graph import *
 from ucs.priority_queue import *
 from mapGeneratorPygame.mapGenerator import returnMapWithBombs
+import random
 
 graphNodes = []
 bombMaps = returnMapWithBombs()[0]
 bombMatrix = returnMapWithBombs()[1]
+posList = []
+randWeightList = []
 
 def run(graph, key_node_start, key_node_goal, verbose=False, time_sleep=0):
 	if key_node_start not in graph.getNodes() or key_node_goal not in graph.getNodes():
@@ -56,57 +59,83 @@ def run(graph, key_node_start, key_node_goal, verbose=False, time_sleep=0):
 		else:
 			print('\nUnfulfilled goal.\n')
 
-matrixGraph = Graph()
-
-x, y = 0, 0
-for x in range(10):
-	for y in range(10):
-		matrixGraph.addNode((x, y))
-
-x, y = 0, 0
-for x in range(10):
-	for y in range(10):
-		matrixGraph.connect((x, y), (x + 1, y), 1)
-		matrixGraph.connect((x, y), (x, y + 1), 2)
-
-i, j = 0, 0
-for i in range(10):
-	for j in range(10):
-		print(matrixGraph.getSuccessors((i, j)), '\n')
-
 
 if __name__ == "__main__":
 
 	# build the graph...
 	# adds nodes in the graph
 	graph = Graph()
-	graph.addNode('S') # start sapera
 
-	i = 0
+
+	graph.addNode((0, 0))
+	posList.append((0, 0, 1))
+
 	for i in range(10):
-		graph.addNode(bombMaps[i])
+		randWeight = random.randrange(1, 50)
+		randWeightList.append(randWeight)
 
-	graph.addNode('G') # goal
+	for i in range(10):
+		graph.addNode((bombMaps[i][0], bombMaps[i][1]))
+		posList.append((bombMaps[i][0], bombMaps[i][1], (bombMaps[i][0] + bombMaps[i][1]) * randWeightList[i]))
 
-	for nodes in graph.nodes:
-		print(nodes)
+	graph.addNode((9, 9))
+
+	print(graph.nodes)
+
+	print('not sorted yet')
+	for row in posList:
+		print(row)
+
+	posList.sort(key=lambda x: x[2])
+
+	print('all sorted')
+	for row in posList:
+		print(row)
+
+	posList.append((9, 9, 1))
+
+	# dopisz Wiktor wagi - Na razie rzuca randomowo
+	# 0 -> 1 | 0 -> 2
+	graph.connect((posList[0][0], posList[0][1]), (posList[1][0], posList[1][1]), posList[1][2])
+	graph.connect((posList[0][0], posList[0][1]), (posList[2][0], posList[2][1]), posList[2][2])
+
+	# 1 -> 3 | 1 -> 4
+	graph.connect((posList[1][0], posList[1][1]), (posList[3][0], posList[3][1]), posList[3][2])
+	graph.connect((posList[1][0], posList[1][1]), (posList[4][0], posList[4][1]), posList[4][2])
+
+	# 2 -> 5 | 2 -> 6
+	graph.connect((posList[2][0], posList[2][1]), (posList[5][0], posList[5][1]), posList[5][2])
+	graph.connect((posList[2][0], posList[2][1]), (posList[6][0], posList[6][1]), posList[6][2])
+
+	# 3 -> 7 | 3 -> 8
+	graph.connect((posList[3][0], posList[3][1]), (posList[7][0], posList[7][1]), posList[7][2])
+	graph.connect((posList[3][0], posList[3][1]), (posList[8][0], posList[8][1]), posList[8][2])
+
+	# 4 -> 9 | 4 -> 10
+	graph.connect((posList[4][0], posList[4][1]), (posList[9][0], posList[9][1]), posList[9][2])
+	graph.connect((posList[4][0], posList[4][1]), (posList[10][0], posList[10][1]), posList[10][2])
+
+	#10 -> 11
+	graph.connect((posList[10][0], posList[10][1]), (posList[11][0], posList[11][1]), posList[11][2])
 
 	# linking the nodes
-	graph.connect('S', 'd', 3)
-	graph.connect('S', 'e', 9)
-	graph.connect('S', 'p', 1)
-	graph.connect('b', 'a', 2)
-	graph.connect('c', 'a', 2)
-	graph.connect('d', 'b', 1)
-	graph.connect('d', 'c', 8)
-	graph.connect('d', 'e', 2)
-	graph.connect('e', 'h', 8)
-	graph.connect('e', 'r', 2)
-	graph.connect('f', 'c', 3)
-	graph.connect('f', 'G', 2)
-	graph.connect('h', 'p', 4)
-	graph.connect('h', 'q', 4)
-	graph.connect('p', 'q', 15)
-	graph.connect('r', 'f', 1)
+	#
+	# x, y = 0, 0
+	# for x in range(10):
+	# 	for y in range(10):
+	# 		graph.addNode((x, y))
+	#
+	# x, y = 0, 0
+	# for y in range(10):
+	# 	for x in range(10):
+	# 		# graph.connect((x, y), (x + 1, y), 1)
+	# 		# graph.connect((x, y), (x, y + 1), 2)
+	# 		print("X: ", x, '  Y: ', y)
+	# 		print(bombMaps[y][0], bombMaps[y][1])
+	# 		if x + 1 == bombMaps[y][0] and y == bombMaps[y][1]:
+	# 			graph.connect((x, y), (x + 1, y), bombMaps[y][2])
+	# 		else:
+	# 			graph.connect((x, y), (x + 1, y), 0)
+	# 			graph.connect((x, y), (x, y + 1), 0)
 
-	run(graph=graph, key_node_start='S', key_node_goal='G', verbose=True, time_sleep=2)
+	run(graph=graph, key_node_start=(0, 0), key_node_goal=(9, 9), verbose=True, time_sleep=2)

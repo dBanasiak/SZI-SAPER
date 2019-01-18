@@ -46,11 +46,6 @@ def randObstaclePos():
             i += 1
             obstacleProp.append((x, y, obstacle, bombPathArray[obstacle], x * 64, y * 64, i))
 
-randBombPos()
-randObstaclePos()
-print('\nZ przeszkodami:')
-for row in mergedMatrix:
-    print(row)
 
 def printBombAndPos():
     randBombPos()
