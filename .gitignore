@@ -108,7 +108,7 @@ venv.bak/
 
 node_modules
 build
-npm-debug.log<<<<<<< HEAD
+npm-debug.log
 .idea
 .env
 .DS_Store
