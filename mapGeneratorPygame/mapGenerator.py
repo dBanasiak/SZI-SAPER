@@ -45,8 +45,6 @@ def app():
     # Ścieżka do bazy przykładów dla AI
     bombsPath = '../neuralNetwork/images/bombs/'
 
-    bombType = []
-
     allBombs = []
     i = 0
     for i in range(10):
@@ -97,9 +95,6 @@ def app():
         for i in range(10):
             screen.blit(allBombs[i], ((bombProp[i][4]), (bombProp[i][5])))
             screen.blit(textSurface[i], ((bombProp[i][4]) + 16, (bombProp[i][5]) + 16))
-
-        for i in range(4):
-            screen.blit(allBombs[i], ((bombProp[i][4]), (bombProp[i][5])))
 
         pygame.display.flip()
         clock.tick(FPS)
