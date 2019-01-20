@@ -63,6 +63,13 @@ class Graph:
 		else:
 			print('Error: key not exists!!')
 
+	def removeConnection(self, key):
+		for node in self.nodes:
+			for index, successor in enumerate(self.nodes[node].successors):
+				if successor.getKey() == key:
+					print('Find to destroy',successor.getKey())
+					self.nodes[node].successors.pop(index)
+
 
 	# returns weight of edge 
 	def getWeightEdge(self, key_source, key_successor):
@@ -87,6 +94,12 @@ class Graph:
 			return keys_successors
 		else:
 			print('Error: key not exists!!')
+
+	def isKeyExist(self, key_node):
+		if key_node in self.nodes:
+			return True
+		else:
+			return False
 
 
 	# returns all nodes
