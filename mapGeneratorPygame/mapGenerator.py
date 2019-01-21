@@ -1,22 +1,27 @@
 import pygame
-from mapGeneratorPygame.setBomb import printBombAndPos
-from neuralNetwork.imagerec import whatBombIsThis, createExamples
-from mapGeneratorPygame.dataRandomGenerator import getTime, getCost
-from decisionTree.decisionTree import build_default_tree, simple_classify
+from ucs.allPriorityData import returnPriorityData
 
-bombProp = printBombAndPos()[0]
-mapMatrix = printBombAndPos()[1]
-
-bombsForUCS = []
+bombType = returnPriorityData()[0]
+graphNodes = returnPriorityData()[1]
+posList = returnPriorityData()[2]
+priority = returnPriorityData()[3]
+bombProp = returnPriorityData()[4]
+mapMatrix = returnPriorityData()[5]
 allBombs = []
-i = 0
-for i in range(10):
-    allBombs.append(pygame.image.load(bombProp[i][3]))
 
-def returnMapWithBombs():
-    for i in range(10):
-        bombsForUCS.append((bombProp[i][0], bombProp[i][1], bombProp[i][2]))
-    return bombsForUCS, mapMatrix, bombProp
+bomb1Path = '../neuralNetwork/images/test1.png'
+bomb2Path = '../neuralNetwork/images/test2.png'
+bomb3Path = '../neuralNetwork/images/test3.png'
+bomb4Path = '../neuralNetwork/images/test4.png'
+bomb5Path = '../neuralNetwork/images/test5.png'
+bomb6Path = '../neuralNetwork/images/test6.png'
+
+bomb1 = pygame.image.load(bomb1Path)
+bomb2 = pygame.image.load(bomb2Path)
+bomb3 = pygame.image.load(bomb3Path)
+bomb4 = pygame.image.load(bomb4Path)
+bomb5 = pygame.image.load(bomb5Path)
+bomb6 = pygame.image.load(bomb6Path)
 
 def app():
     # Kolory
@@ -25,8 +30,7 @@ def app():
 
     # Saper
     saper = pygame.image.load('saper/saper.png')
-    x = 0
-    y = 0
+    escape = pygame.image.load('saper/escape.png')
 
     # Szerokość i wysokość okna aplikacji
     WINDOW_SIZE = [640, 640]
@@ -36,68 +40,41 @@ def app():
     pygame.font.init()
     done = False
     clock = pygame.time.Clock()
-    FPS = 15
+    FPS = 1
     myFont = pygame.font.SysFont('Comic Sans MS', 30)
     textSurface = []
 
-    # Ścieżka do danych tekstowych dla AI
-    exPath = '../neuralNetwork/numArEx.txt'
-    # Ścieżka do bazy przykładów dla AI
-    bombsPath = '../neuralNetwork/images/bombs/'
-
-    allBombs = []
-    i = 0
-    for i in range(10):
-        allBombs.append(pygame.image.load(bombProp[i][3]))
-    bombType = []
-    priority = []
-
-    neuralNetworkStop = False
-
     # Główna pętla
     while not done:
-
-        if neuralNetworkStop == False:
-            i = 0
-            createExamples(bombsPath, exPath)
-            tree = build_default_tree()
-            for i in range(10):
-                whatBombIsIt = whatBombIsThis(bombProp[i][3], exPath)
-                bombType.append((whatBombIsIt, getTime(whatBombIsIt), getCost(whatBombIsIt), bombProp[i][2], bombProp[i][4],
-                                 bombProp[i][5]))
-                print('Progres skanowania pola minowego: ', 10 * len(bombType), '%')
-            for row in bombType:
-                priorityVal = simple_classify(row, tree)
-                textSurface.append(myFont.render(str(priorityVal), False, (0, 255, 17)))
-                priority.append(priorityVal)
-                print(row, ' => ', priorityVal)
-            neuralNetworkStop = True
-
-
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 done = True
         screen.fill(WHITE)
 
-        for row in mapMatrix:
-            for col in row:
-                if col == 1:
-                    screen.blit(saper, (x * 64, y * 64))
-                    x += 1
-                if x == 10:
-                    y += 1
-                    x = 0
-            if y == 10 and x == 9:
-                x = 0
-                y = 0
-
-        i = 0
         for i in range(10):
-            screen.blit(allBombs[i], ((bombProp[i][4]), (bombProp[i][5])))
-            screen.blit(textSurface[i], ((bombProp[i][4]) + 16, (bombProp[i][5]) + 16))
+            for j in range(10):
+                if mapMatrix[i][j] == 1:
+                    screen.blit(saper, (i * 64, j * 64))
+                if mapMatrix[i][j] == 15:
+                    screen.blit(escape, (i * 64, j * 64))
+                if mapMatrix[i][j] == 2:
+                    screen.blit(bomb1, (i * 64, j * 64))
+                if mapMatrix[i][j] == 3:
+                    screen.blit(bomb2, (i * 64, j * 64))
+                if mapMatrix[i][j] == 4:
+                    screen.blit(bomb3, (i * 64, j * 64))
+                if mapMatrix[i][j] == 5:
+                    screen.blit(bomb4, (i * 64, j * 64))
+                if mapMatrix[i][j] == 6:
+                    screen.blit(bomb5, (i * 64, j * 64))
+                if mapMatrix[i][j] == 7:
+                    screen.blit(bomb6, (i * 64, j * 64))
 
-        for i in range(4):
-            screen.blit(allBombs[i], ((bombProp[i][4]), (bombProp[i][5])))
+        for i in range(10):
+            textSurface.append(myFont.render(str(priority[i]), False, (0, 255, 17)))
+
+        for i in range(10):
+            screen.blit(textSurface[i], ((bombProp[i][4]) + 16, (bombProp[i][5]) + 16))
 
         pygame.display.flip()
         clock.tick(FPS)
