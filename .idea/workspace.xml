@@ -1,7 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d12db078-6829-498b-bf44-23aa17b8b496" name="Default Changelist" comment="" />
+    <list default="true" id="d12db078-6829-498b-bf44-23aa17b8b496" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mapGeneratorPygame/mapGenerator.py" beforeDir="false" afterPath="$PROJECT_DIR$/mapGeneratorPygame/mapGenerator.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/neuralNetwork/imagerec.py" beforeDir="false" afterPath="$PROJECT_DIR$/neuralNetwork/imagerec.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ucs/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/ucs/main.py" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -15,22 +21,10 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/mapGeneratorPygame/setBomb.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="375">
-              <caret line="40" column="12" lean-forward="true" selection-start-line="40" selection-start-column="12" selection-end-line="40" selection-end-column="34" />
-              <folding>
-                <element signature="e#0#54#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/mapGeneratorPygame/mapGenerator.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="283">
-              <caret line="76" lean-forward="true" selection-start-line="76" selection-end-line="76" />
+            <state relative-caret-position="225">
+              <caret line="39" selection-start-line="39" selection-end-line="40" selection-end-column="20" />
               <folding>
                 <element signature="e#0#13#0" expanded="true" />
               </folding>
@@ -39,19 +33,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/.gitignore">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="75">
-              <caret line="5" column="5" selection-start-line="5" selection-start-column="5" selection-end-line="5" selection-end-column="5" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ucs/main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="172">
-              <caret line="77" column="55" lean-forward="true" selection-start-line="77" selection-start-column="55" selection-end-line="77" selection-end-column="55" />
+            <state relative-caret-position="279">
+              <caret line="148" column="40" selection-start-line="148" selection-start-column="40" selection-end-line="148" selection-end-column="40" />
               <folding>
                 <element signature="e#0#11#0" expanded="true" />
               </folding>
@@ -60,8 +45,15 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/mapGeneratorPygame/dataRandomGenerator.py">
-          <provider selected="true" editor-type-id="text-editor" />
+        <entry file="file://$PROJECT_DIR$/neuralNetwork/imagerec.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="45">
+              <caret line="3" column="31" selection-start-line="3" selection-start-column="31" selection-end-line="3" selection-end-column="31" />
+              <folding>
+                <element signature="e#0#21#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
         </entry>
       </file>
     </leaf>
@@ -92,13 +84,13 @@
         <option value="$PROJECT_DIR$/mapGeneratorPygame/message.py" />
         <option value="$PROJECT_DIR$/mapGeneratorPygame/emptyMatrix.py" />
         <option value="$PROJECT_DIR$/ucs/ucsAlgorithm.py" />
-        <option value="$PROJECT_DIR$/neuralNetwork/imagerec.py" />
         <option value="$PROJECT_DIR$/mapGeneratorPygame/dataRandomGenerator.py" />
         <option value="$PROJECT_DIR$/decisionTree/decisionTree.py" />
-        <option value="$PROJECT_DIR$/mapGeneratorPygame/mapGenerator.py" />
         <option value="$PROJECT_DIR$/mapGeneratorPygame/setBomb.py" />
-        <option value="$PROJECT_DIR$/ucs/main.py" />
         <option value="$PROJECT_DIR$/.gitignore" />
+        <option value="$PROJECT_DIR$/mapGeneratorPygame/mapGenerator.py" />
+        <option value="$PROJECT_DIR$/neuralNetwork/imagerec.py" />
+        <option value="$PROJECT_DIR$/ucs/main.py" />
       </list>
     </option>
   </component>
@@ -112,7 +104,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Course" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -120,10 +111,21 @@
               <item name="SZI-SAPER" type="b2602c69:ProjectViewProjectNode" />
               <item name="SZI-SAPER" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="SZI-SAPER" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SZI-SAPER" type="462c0819:PsiDirectoryNode" />
+              <item name="neuralNetwork" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SZI-SAPER" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SZI-SAPER" type="462c0819:PsiDirectoryNode" />
+              <item name="ucs" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Course" />
       <pane id="Scope" />
     </panes>
   </component>
@@ -258,9 +260,9 @@
     <list>
       <item itemvalue="Python.decisionTree" />
       <item itemvalue="Python.imagerec" />
-      <item itemvalue="Python.main" />
       <item itemvalue="Python.mapGenerator" />
       <item itemvalue="Python.setBomb" />
+      <item itemvalue="Python.main" />
     </list>
     <recent_temporary>
       <list>
@@ -332,19 +334,19 @@
     <editor active="true" />
     <layout>
       <window_info id="Favorites" order="0" side_tool="true" />
-      <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.22189128" />
+      <window_info content_ui="combo" id="Project" order="1" visible="true" weight="0.22189128" />
       <window_info id="Structure" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Event Log" order="0" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="1" />
       <window_info anchor="bottom" id="Find" order="2" weight="0.32861635" />
-      <window_info anchor="bottom" id="Run" order="3" weight="0.34119496" />
+      <window_info active="true" anchor="bottom" id="Run" order="3" visible="true" weight="0.2672956" />
       <window_info anchor="bottom" id="Debug" order="4" weight="0.4037199" />
       <window_info anchor="bottom" id="Cvs" order="5" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="6" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="7" />
       <window_info anchor="bottom" id="Version Control" order="8" weight="0.32827735" />
       <window_info anchor="bottom" id="Educational.CheckDetails" order="9" />
-      <window_info anchor="bottom" id="Terminal" order="10" visible="true" weight="0.2507837" />
+      <window_info anchor="bottom" id="Terminal" order="10" weight="0.25" />
       <window_info anchor="bottom" id="Python Console" order="11" weight="0.32603937" />
       <window_info anchor="bottom" id="Docker" order="12" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="13" />
@@ -438,9 +440,7 @@
     <entry file="file://$PROJECT_DIR$/mapGeneratorPygame/message" />
     <entry file="file://$PROJECT_DIR$/mapGeneratorPygame/message.py" />
     <entry file="file://$PROJECT_DIR$/mapGeneratorPygame/randBomb.py" />
-    <entry file="file://$PROJECT_DIR$/ucs/ucsAlgorithm.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
+    <entry file="file://$PROJECT_DIR$/ucs/ucsAlgorithm.py" />
     <entry file="file://$PROJECT_DIR$/mapGeneratorPygame/emptyMatrix.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
@@ -462,16 +462,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/neuralNetwork/imagerec.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="18" column="31" selection-start-line="18" selection-start-column="31" selection-end-line="18" selection-end-column="31" />
-          <folding>
-            <element signature="e#0#21#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/decisionTree/decisionTree.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="259">
@@ -479,43 +469,56 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="18" column="4" selection-start-line="18" selection-start-column="4" selection-end-line="18" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/mapGeneratorPygame/dataRandomGenerator.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/mapGeneratorPygame/mapGenerator.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="283">
-          <caret line="76" lean-forward="true" selection-start-line="76" selection-end-line="76" />
-          <folding>
-            <element signature="e#0#13#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
+    <entry file="file://$PROJECT_DIR$/ucs/graph.py">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/mapGeneratorPygame/setBomb.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="375">
-          <caret line="40" column="12" lean-forward="true" selection-start-line="40" selection-start-column="12" selection-end-line="40" selection-end-column="34" />
+          <caret line="40" column="12" selection-start-line="40" selection-start-column="12" selection-end-line="40" selection-end-column="34" />
           <folding>
             <element signature="e#0#54#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ucs/main.py">
+    <entry file="file://$PROJECT_DIR$/neuralNetwork/imagerec.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="172">
-          <caret line="77" column="55" lean-forward="true" selection-start-line="77" selection-start-column="55" selection-end-line="77" selection-end-column="55" />
+        <state relative-caret-position="45">
+          <caret line="3" column="31" selection-start-line="3" selection-start-column="31" selection-end-line="3" selection-end-column="31" />
           <folding>
-            <element signature="e#0#11#0" expanded="true" />
+            <element signature="e#0#21#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
+    <entry file="file://$PROJECT_DIR$/mapGeneratorPygame/mapGenerator.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="5" selection-start-line="5" selection-start-column="5" selection-end-line="5" selection-end-column="5" />
+        <state relative-caret-position="225">
+          <caret line="39" selection-start-line="39" selection-end-line="40" selection-end-column="20" />
+          <folding>
+            <element signature="e#0#13#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ucs/main.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="279">
+          <caret line="148" column="40" selection-start-line="148" selection-start-column="40" selection-end-line="148" selection-end-column="40" />
+          <folding>
+            <element signature="e#0#11#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

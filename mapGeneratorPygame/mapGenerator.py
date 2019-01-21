@@ -16,7 +16,7 @@ for i in range(10):
 def returnMapWithBombs():
     for i in range(10):
         bombsForUCS.append((bombProp[i][0], bombProp[i][1], bombProp[i][2]))
-    return bombsForUCS, mapMatrix
+    return bombsForUCS, mapMatrix, bombProp
 
 def app():
     # Kolory
@@ -44,8 +44,6 @@ def app():
     exPath = '../neuralNetwork/numArEx.txt'
     # Ścieżka do bazy przykładów dla AI
     bombsPath = '../neuralNetwork/images/bombs/'
-
-    bombType = []
 
     allBombs = []
     i = 0

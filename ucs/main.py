@@ -3,12 +3,43 @@ from ucs.graph import *
 from ucs.priority_queue import *
 from mapGeneratorPygame.mapGenerator import returnMapWithBombs
 import random
+from neuralNetwork.imagerec import whatBombIsThis, createExamples
+from mapGeneratorPygame.dataRandomGenerator import getTime, getCost
+from decisionTree.decisionTree import build_default_tree, simple_classify
+import cv2
 
 graphNodes = []
 bombMaps = returnMapWithBombs()[0]
 bombMatrix = returnMapWithBombs()[1]
 posList = []
 randWeightList = []
+# Ścieżka do danych tekstowych dla AI
+exPath = '../neuralNetwork/numArEx.txt'
+# Ścieżka do bazy przykładów dla AI
+bombsPath = '../neuralNetwork/images/bombs/'
+priority = []
+bombType = []
+bombProp = returnMapWithBombs()[2]
+img_rgb = []
+
+for i in range(10):
+    img_rgb.append(cv2.imread(bombProp[i][3]))
+
+createExamples(bombsPath, exPath)
+tree = build_default_tree()
+for i in range(10):
+	whatBombIsIt = whatBombIsThis(bombProp[i][3], exPath)
+	bombType.append((whatBombIsIt, getTime(whatBombIsIt), getCost(whatBombIsIt), bombProp[i][2], bombProp[i][4], bombProp[i][5]))
+	cv2.imshow('Sprawdzana bomba', img_rgb[i])
+	cv2.waitKey(1500)
+	if i == 9:
+		cv2.destroyAllWindows()
+	print('Progres skanowania pola minowego: ', 10 * len(bombType), '%')
+
+for row in bombType:
+	priorityVal = simple_classify(row, tree)
+	priority.append(priorityVal)
+	print(row, ' => ', priorityVal)
 
 def run(graph, key_node_start, key_node_goal, verbose=False, time_sleep=0):
 	if key_node_start not in graph.getNodes() or key_node_goal not in graph.getNodes():
@@ -54,8 +85,7 @@ def run(graph, key_node_start, key_node_goal, verbose=False, time_sleep=0):
 
 		if(reached_goal):
 			print('\nReached goal! Cost: %s\n' % cumulative_cost_goal)
-			for row in graphNodes:
-				print(row)
+
 		else:
 			print('\nUnfulfilled goal.\n')
 
@@ -76,66 +106,46 @@ if __name__ == "__main__":
 
 	for i in range(10):
 		graph.addNode((bombMaps[i][0], bombMaps[i][1]))
-		posList.append((bombMaps[i][0], bombMaps[i][1], (bombMaps[i][0] + bombMaps[i][1]) * randWeightList[i]))
+		posList.append((bombMaps[i][0], bombMaps[i][1], (bombMaps[i][0] + bombMaps[i][1]) * priority[i]))
 
 	graph.addNode((9, 9))
 
-	print(graph.nodes)
-
-	print('not sorted yet')
-	for row in posList:
-		print(row)
-
 	posList.sort(key=lambda x: x[2])
-
-	print('all sorted')
-	for row in posList:
-		print(row)
 
 	posList.append((9, 9, 1))
 
-	# dopisz Wiktor wagi - Na razie rzuca randomowo
-	# 0 -> 1 | 0 -> 2
+	# linking the nodes
+	# 0 -> 1 | 0 -> 2 | 0 -> 3
 	graph.connect((posList[0][0], posList[0][1]), (posList[1][0], posList[1][1]), posList[1][2])
 	graph.connect((posList[0][0], posList[0][1]), (posList[2][0], posList[2][1]), posList[2][2])
+	graph.connect((posList[0][0], posList[0][1]), (posList[3][0], posList[3][1]), posList[3][2])
 
-	# 1 -> 3 | 1 -> 4
-	graph.connect((posList[1][0], posList[1][1]), (posList[3][0], posList[3][1]), posList[3][2])
+	# 1 -> 2 | 1 -> 4 | 1 -> 5
+	graph.connect((posList[1][0], posList[1][1]), (posList[2][0], posList[2][1]), posList[2][2])
 	graph.connect((posList[1][0], posList[1][1]), (posList[4][0], posList[4][1]), posList[4][2])
+	graph.connect((posList[1][0], posList[1][1]), (posList[5][0], posList[5][1]), posList[5][2])
 
-	# 2 -> 5 | 2 -> 6
-	graph.connect((posList[2][0], posList[2][1]), (posList[5][0], posList[5][1]), posList[5][2])
+	# 2 -> 3 | 2 -> 6 | 2 -> 7
+	graph.connect((posList[2][0], posList[2][1]), (posList[3][0], posList[3][1]), posList[3][2])
 	graph.connect((posList[2][0], posList[2][1]), (posList[6][0], posList[6][1]), posList[6][2])
+	graph.connect((posList[2][0], posList[2][1]), (posList[7][0], posList[7][1]), posList[7][2])
 
-	# 3 -> 7 | 3 -> 8
-	graph.connect((posList[3][0], posList[3][1]), (posList[7][0], posList[7][1]), posList[7][2])
+	# 3 -> 8 | 3 -> 9
 	graph.connect((posList[3][0], posList[3][1]), (posList[8][0], posList[8][1]), posList[8][2])
+	graph.connect((posList[3][0], posList[3][1]), (posList[9][0], posList[9][1]), posList[9][2])
 
-	# 4 -> 9 | 4 -> 10
-	graph.connect((posList[4][0], posList[4][1]), (posList[9][0], posList[9][1]), posList[9][2])
-	graph.connect((posList[4][0], posList[4][1]), (posList[10][0], posList[10][1]), posList[10][2])
+	# 4 -> 5
+	graph.connect((posList[4][0], posList[4][1]), (posList[5][0], posList[5][1]), posList[5][2])
+
+	# 9 -> 10
+	graph.connect((posList[9][0], posList[9][1]), (posList[10][0], posList[10][1]), posList[10][2])
 
 	#10 -> 11
 	graph.connect((posList[10][0], posList[10][1]), (posList[11][0], posList[11][1]), posList[11][2])
 
-	# linking the nodes
-	#
-	# x, y = 0, 0
-	# for x in range(10):
-	# 	for y in range(10):
-	# 		graph.addNode((x, y))
-	#
-	# x, y = 0, 0
-	# for y in range(10):
-	# 	for x in range(10):
-	# 		# graph.connect((x, y), (x + 1, y), 1)
-	# 		# graph.connect((x, y), (x, y + 1), 2)
-	# 		print("X: ", x, '  Y: ', y)
-	# 		print(bombMaps[y][0], bombMaps[y][1])
-	# 		if x + 1 == bombMaps[y][0] and y == bombMaps[y][1]:
-	# 			graph.connect((x, y), (x + 1, y), bombMaps[y][2])
-	# 		else:
-	# 			graph.connect((x, y), (x + 1, y), 0)
-	# 			graph.connect((x, y), (x, y + 1), 0)
-
 	run(graph=graph, key_node_start=(0, 0), key_node_goal=(9, 9), verbose=True, time_sleep=2)
+
+def returnTreeWithWeight():
+	return bombType, graphNodes, posList
+
+print(returnTreeWithWeight())

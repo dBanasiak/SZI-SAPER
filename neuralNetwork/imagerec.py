@@ -3,7 +3,6 @@ import numpy as np
 import functools
 from collections import Counter
 
-
 def createExamples(path, exampleFile):
     numberArrayExamples = open(exampleFile, 'a')
     numbersWeHave = range(0, 6)
