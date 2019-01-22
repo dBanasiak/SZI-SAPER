@@ -7,4 +7,5 @@ def emptyMatrix():
             emptyMatrix[row].append(0)
 
     emptyMatrix[0][0] = 1
+    emptyMatrix[9][9] = 15
     return emptyMatrix

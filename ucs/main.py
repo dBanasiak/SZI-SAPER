@@ -1,16 +1,15 @@
 import time
 from ucs.graph import *
 from ucs.priority_queue import *
-from mapGeneratorPygame.mapGenerator import returnMapWithBombs
 import random
 from neuralNetwork.imagerec import whatBombIsThis, createExamples
 from mapGeneratorPygame.dataRandomGenerator import getTime, getCost
 from decisionTree.decisionTree import build_default_tree, simple_classify
 import cv2
+from mapGeneratorPygame.setBomb import printBombAndPos
 
 graphNodes = []
-bombMaps = returnMapWithBombs()[0]
-bombMatrix = returnMapWithBombs()[1]
+
 posList = []
 randWeightList = []
 # Ścieżka do danych tekstowych dla AI
@@ -19,27 +18,40 @@ exPath = '../neuralNetwork/numArEx.txt'
 bombsPath = '../neuralNetwork/images/bombs/'
 priority = []
 bombType = []
-bombProp = returnMapWithBombs()[2]
+bombArr = printBombAndPos()
+bombProp = bombArr[0]
+mapMatrix = bombArr[1]
 img_rgb = []
+bombsForUCS = []
 
-for i in range(10):
-    img_rgb.append(cv2.imread(bombProp[i][3]))
+def returnMapWithBombs():
+    for i in range(10):
+        bombsForUCS.append((bombProp[i][0], bombProp[i][1], bombProp[i][2]))
+    return bombsForUCS, mapMatrix, bombProp
 
-createExamples(bombsPath, exPath)
-tree = build_default_tree()
-for i in range(10):
-	whatBombIsIt = whatBombIsThis(bombProp[i][3], exPath)
-	bombType.append((whatBombIsIt, getTime(whatBombIsIt), getCost(whatBombIsIt), bombProp[i][2], bombProp[i][4], bombProp[i][5]))
-	cv2.imshow('Sprawdzana bomba', img_rgb[i])
-	cv2.waitKey(1500)
-	if i == 9:
-		cv2.destroyAllWindows()
-	print('Progres skanowania pola minowego: ', 10 * len(bombType), '%')
+bombMaps = returnMapWithBombs()[0]
+bombMatrix = returnMapWithBombs()[1]
 
-for row in bombType:
-	priorityVal = simple_classify(row, tree)
-	priority.append(priorityVal)
-	print(row, ' => ', priorityVal)
+def treeAndNeuralNetwork():
+	for i in range(10):
+		image = cv2.imread(bombProp[i][3])
+		resized_image = cv2.resize(image, (250, 250))
+		img_rgb.append(resized_image)
+
+	createExamples(bombsPath, exPath)
+	tree = build_default_tree()
+
+	for i in range(10):
+		whatBombIsIt = whatBombIsThis(bombProp[i][3], exPath)
+		bombType.append((whatBombIsIt, getTime(whatBombIsIt), getCost(whatBombIsIt), bombProp[i][2], bombProp[i][4], bombProp[i][5]))
+		cv2.imshow('Sprawdzana bomba', img_rgb[i])
+		cv2.waitKey(1500)
+		print('Progres skanowania pola minowego: ', 10 * len(bombType), '%')
+
+	for row in bombType:
+		priorityVal = simple_classify(row, tree)
+		priority.append(priorityVal)
+		print(row, ' => ', priorityVal)
 
 def run(graph, key_node_start, key_node_goal, verbose=False, time_sleep=0):
 	if key_node_start not in graph.getNodes() or key_node_goal not in graph.getNodes():
@@ -85,13 +97,14 @@ def run(graph, key_node_start, key_node_goal, verbose=False, time_sleep=0):
 
 		if(reached_goal):
 			print('\nReached goal! Cost: %s\n' % cumulative_cost_goal)
+			cv2.destroyAllWindows()
 
 		else:
 			print('\nUnfulfilled goal.\n')
+			cv2.destroyAllWindows()
 
-
-if __name__ == "__main__":
-
+def graphBuild():
+	treeAndNeuralNetwork()
 	# build the graph...
 	# adds nodes in the graph
 	graph = Graph()
@@ -99,10 +112,6 @@ if __name__ == "__main__":
 
 	graph.addNode((0, 0))
 	posList.append((0, 0, 1))
-
-	for i in range(10):
-		randWeight = random.randrange(1, 50)
-		randWeightList.append(randWeight)
 
 	for i in range(10):
 		graph.addNode((bombMaps[i][0], bombMaps[i][1]))
@@ -143,9 +152,6 @@ if __name__ == "__main__":
 	#10 -> 11
 	graph.connect((posList[10][0], posList[10][1]), (posList[11][0], posList[11][1]), posList[11][2])
 
-	run(graph=graph, key_node_start=(0, 0), key_node_goal=(9, 9), verbose=True, time_sleep=2)
-
 def returnTreeWithWeight():
-	return bombType, graphNodes, posList
-
-print(returnTreeWithWeight())
+	graphBuild()
+	return bombType, graphNodes, posList, priority, bombProp, mapMatrix
