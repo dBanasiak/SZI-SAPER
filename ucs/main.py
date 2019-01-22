@@ -7,6 +7,7 @@ from mapGeneratorPygame.dataRandomGenerator import getTime, getCost
 from decisionTree.decisionTree import build_default_tree, simple_classify
 import cv2
 from mapGeneratorPygame.setBomb import printBombAndPos
+import sys
 
 graphNodes = []
 
@@ -23,6 +24,7 @@ bombProp = bombArr[0]
 mapMatrix = bombArr[1]
 img_rgb = []
 bombsForUCS = []
+counter, counterText = [], []
 
 def returnMapWithBombs():
     for i in range(10):
@@ -52,6 +54,11 @@ def treeAndNeuralNetwork():
 		priorityVal = simple_classify(row, tree)
 		priority.append(priorityVal)
 		print(row, ' => ', priorityVal)
+		counter.append(row[1])
+		if row[1] != sys.maxsize:
+			counterText.append(str(row[1]).rjust(2))
+		else:
+			counterText.append(str('').rjust(2))
 
 def run(graph, key_node_start, key_node_goal, verbose=False, time_sleep=0):
 	if key_node_start not in graph.getNodes() or key_node_goal not in graph.getNodes():
@@ -154,4 +161,4 @@ def graphBuild():
 
 def returnTreeWithWeight():
 	graphBuild()
-	return bombType, graphNodes, posList, priority, bombProp, mapMatrix
+	return bombType, graphNodes, posList, priority, bombProp, mapMatrix, counter, counterText
