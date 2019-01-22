@@ -1,4 +1,5 @@
 import pygame
+import sys
 from mapGeneratorPygame.setBomb import printBombAndPos
 from neuralNetwork.imagerec import whatBombIsThis, createExamples
 from mapGeneratorPygame.dataRandomGenerator import getTime, getCost
@@ -40,8 +41,8 @@ def app():
     myFont = pygame.font.SysFont('Comic Sans MS', 30)
     textSurface = []
 
-    counter, counterText = 10, '10'.rjust(3)
-    pygame.time.set_timer(pygame.USEREVENT, 10000)
+    counter, counterText = [], []
+
     counterFont = pygame.font.SysFont('Consolas', 30)
 
     # Ścieżka do danych tekstowych dla AI
@@ -75,15 +76,23 @@ def app():
                 textSurface.append(myFont.render(str(priorityVal), False, (0, 255, 17)))
                 priority.append(priorityVal)
                 print(row, ' => ', priorityVal)
+                counter.append(row[1])
+                if row[1] != sys.maxsize:
+                    counterText.append(str(row[1]).rjust(2))
+                else:
+                    counterText.append(str('').rjust(2))
             neuralNetworkStop = True
+            pygame.time.set_timer(pygame.USEREVENT, 1000)
 
 
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 done = True
             if event.type == pygame.USEREVENT:
-                counter -= 1
-                counterText = str(counter).rjust(3) if counter > 0 else 'boom!'
+                for i in range(10):
+                    if counter[i] != sys.maxsize:
+                        counter[i] -= 1
+                        counterText[i] = str(counter[i]).rjust(2) if counter[i] > 0 else ' X'
         screen.fill(WHITE)
 
         for row in mapMatrix:
@@ -102,7 +111,7 @@ def app():
         for i in range(10):
             screen.blit(allBombs[i], ((bombProp[i][4]), (bombProp[i][5])))
             screen.blit(textSurface[i], ((bombProp[i][4]) + 16, (bombProp[i][5]) + 16))
-            screen.blit(counterFont.render(counterText, True, (0, 0, 0)), ((bombProp[i][4]) + 16, (bombProp[i][5]) - 16))
+            screen.blit(counterFont.render(counterText[i], True, (0, 229, 255)), ((bombProp[i][4]), (bombProp[i][5])))
 
         pygame.display.flip()
         clock.tick(FPS)
