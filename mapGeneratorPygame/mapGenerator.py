@@ -1,4 +1,5 @@
 import pygame
+import sys
 from ucs.allPriorityData import returnPriorityData
 
 bombType = returnPriorityData()[0]
@@ -7,6 +8,8 @@ posList = returnPriorityData()[2]
 priority = returnPriorityData()[3]
 bombProp = returnPriorityData()[4]
 mapMatrix = returnPriorityData()[5]
+counter = returnPriorityData()[6]
+counterText = returnPriorityData()[7]
 allBombs = []
 
 bomb1Path = '../neuralNetwork/images/test1.png'
@@ -42,13 +45,20 @@ def app():
     clock = pygame.time.Clock()
     FPS = 1
     myFont = pygame.font.SysFont('Comic Sans MS', 30)
+    counterFont = pygame.font.SysFont('Consolas', 30)
     textSurface = []
+    pygame.time.set_timer(pygame.USEREVENT, 1000)
 
     # Główna pętla
     while not done:
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 done = True
+            if event.type == pygame.USEREVENT:
+                for i in range(10):
+                    if counter[i] != sys.maxsize:
+                        counter[i] -= 1
+                        counterText[i] = str(counter[i]).rjust(2) if counter[i] > 0 else ' X'
         screen.fill(WHITE)
 
         for i in range(10):
@@ -76,5 +86,8 @@ def app():
         for i in range(10):
             screen.blit(textSurface[i], ((bombProp[i][4]) + 16, (bombProp[i][5]) + 16))
 
+        for i in range(10):
+            screen.blit(counterFont.render(counterText[i], True, (0, 229, 255)), ((bombProp[i][4]), (bombProp[i][5])))
+        
         pygame.display.flip()
         clock.tick(FPS)
