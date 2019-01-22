@@ -40,6 +40,10 @@ def app():
     myFont = pygame.font.SysFont('Comic Sans MS', 30)
     textSurface = []
 
+    counter, counterText = 10, '10'.rjust(3)
+    pygame.time.set_timer(pygame.USEREVENT, 10000)
+    counterFont = pygame.font.SysFont('Consolas', 30)
+
     # Ścieżka do danych tekstowych dla AI
     exPath = '../neuralNetwork/numArEx.txt'
     # Ścieżka do bazy przykładów dla AI
@@ -77,6 +81,9 @@ def app():
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 done = True
+            if event.type == pygame.USEREVENT:
+                counter -= 1
+                counterText = str(counter).rjust(3) if counter > 0 else 'boom!'
         screen.fill(WHITE)
 
         for row in mapMatrix:
@@ -95,9 +102,7 @@ def app():
         for i in range(10):
             screen.blit(allBombs[i], ((bombProp[i][4]), (bombProp[i][5])))
             screen.blit(textSurface[i], ((bombProp[i][4]) + 16, (bombProp[i][5]) + 16))
-
-        for i in range(4):
-            screen.blit(allBombs[i], ((bombProp[i][4]), (bombProp[i][5])))
+            screen.blit(counterFont.render(counterText, True, (0, 0, 0)), ((bombProp[i][4]) + 16, (bombProp[i][5]) - 16))
 
         pygame.display.flip()
         clock.tick(FPS)
