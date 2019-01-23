@@ -117,7 +117,7 @@ def app():
     myFont = pygame.font.SysFont('Comic Sans MS', 30)
     counterFont = pygame.font.SysFont('Consolas', 30)
     textSurface = []
-    pygame.time.set_timer(pygame.USEREVENT, 60000)
+    pygame.time.set_timer(pygame.USEREVENT, 10000)
 
     # Główna pętla
     while not done:

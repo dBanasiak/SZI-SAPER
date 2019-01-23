@@ -47,12 +47,12 @@ def treeAndNeuralNetwork():
 	for i in range(10):
 		whatBombIsIt = whatBombIsThis(bombProp[i][3], exPath)
 		bombType.append((whatBombIsIt, getTime(whatBombIsIt), getCost(whatBombIsIt), bombProp[i][2], bombProp[i][4], bombProp[i][5]))
-		bombTypeOnly.append(whatBombIsIt)
 		cv2.imshow('Sprawdzana bomba', img_rgb[i])
 		cv2.waitKey(1500)
-		print('Progres skanowania pola minowego: ', 10 * len(bombTypeOnly), '%')
+		bombTypeOnly.append(whatBombIsIt)
+		print('Progres skanowania pola minowego: ', 10 * len(bombType), '%')
 
-	for row in bombTypeOnly:
+	for row in bombType:
 		priorityVal = simple_classify(row, tree)
 		priority.append(priorityVal)
 		print(row, ' => ', priorityVal)
