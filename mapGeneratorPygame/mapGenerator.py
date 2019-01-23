@@ -2,15 +2,76 @@ import pygame
 import sys
 from ucs.allPriorityData import returnPriorityData
 
-bombType = returnPriorityData()[0]
-graphNodes = returnPriorityData()[1]
-posList = returnPriorityData()[2]
-priority = returnPriorityData()[3]
-bombProp = returnPriorityData()[4]
-mapMatrix = returnPriorityData()[5]
-counter = returnPriorityData()[6]
-counterText = returnPriorityData()[7]
+returnPriorityData = returnPriorityData()
+
+bombType = returnPriorityData[8]
+graphNodes = returnPriorityData[1]
+posList = returnPriorityData[2]
+priority = returnPriorityData[3]
+bombProp = returnPriorityData[4]
+mapMatrix = returnPriorityData[5]
+counter = returnPriorityData[6]
+counterText = returnPriorityData[7]
 allBombs = []
+moveX = 0
+moveY = 0
+
+right = True
+up = True
+
+def nextNode():
+    posList.pop(0)
+    moveX = 0
+    moveY = 0
+    dist()
+
+def dist():
+    print(posList[0][0], posList[0][1])
+    print(posList[1][0], posList[1][1])
+
+    if posList[1][0] > posList[0][0]:
+        moveX = posList[1][0] - posList[0][0]
+        print('1 > 0 x : ', moveX)
+        right = True
+    else:
+        moveX = posList[0][0] - posList[1][0]
+        print('0 > 1 x : ', moveX)
+        right = False
+
+    if posList[1][1] > posList[0][1]:
+        moveY = posList[1][1] - posList[0][1]
+        print('1 > 0 y : ', moveY)
+        up = True
+    else:
+        moveY = posList[0][1] - posList[1][1]
+        print('0 > 1 y : ', moveY)
+        up = False
+
+    if moveX + moveY > 0:
+        if right == True:
+            moveX -= 1
+            mapMatrix[posList[0][0]][posList[0][1]] = 0
+            mapMatrix[posList[0][0] + 1][posList[0][1]] = 1
+            posList[0][0] = posList[0][0] + 1
+        if right == False:
+            moveX -= 1
+            mapMatrix[posList[0][0]][posList[0][1]] = 0
+            mapMatrix[posList[0][0] - 1][posList[0][1]] = 1
+            posList[0][0] -= 1
+        if up == True:
+            moveY -= 1
+            mapMatrix[posList[0][0]][posList[0][1]] = 0
+            mapMatrix[posList[0][0]][posList[0][1] + 1] = 1
+            posList[0][1] -= 1
+        if up == False:
+            moveY -= 1
+            mapMatrix[posList[0][0]][posList[0][1]] = 0
+            mapMatrix[posList[0][0]][posList[0][1] - 1] = 1
+            posList[0][1] -= 1
+
+    # następny node
+    else:
+        nextNode()
 
 bomb1Path = '../neuralNetwork/images/test1.png'
 bomb2Path = '../neuralNetwork/images/test2.png'
@@ -47,7 +108,7 @@ def app():
     myFont = pygame.font.SysFont('Comic Sans MS', 30)
     counterFont = pygame.font.SysFont('Consolas', 30)
     textSurface = []
-    pygame.time.set_timer(pygame.USEREVENT, 1000)
+    pygame.time.set_timer(pygame.USEREVENT, 60000)
 
     # Główna pętla
     while not done:
@@ -88,6 +149,7 @@ def app():
 
         for i in range(10):
             screen.blit(counterFont.render(counterText[i], True, (0, 229, 255)), ((bombProp[i][4]), (bombProp[i][5])))
-        
+
+        dist()
         pygame.display.flip()
         clock.tick(FPS)

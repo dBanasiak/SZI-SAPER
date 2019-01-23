@@ -19,6 +19,7 @@ exPath = '../neuralNetwork/numArEx.txt'
 bombsPath = '../neuralNetwork/images/bombs/'
 priority = []
 bombType = []
+bombTypeOnly = []
 bombArr = printBombAndPos()
 bombProp = bombArr[0]
 mapMatrix = bombArr[1]
@@ -46,11 +47,12 @@ def treeAndNeuralNetwork():
 	for i in range(10):
 		whatBombIsIt = whatBombIsThis(bombProp[i][3], exPath)
 		bombType.append((whatBombIsIt, getTime(whatBombIsIt), getCost(whatBombIsIt), bombProp[i][2], bombProp[i][4], bombProp[i][5]))
+		bombTypeOnly.append(whatBombIsIt)
 		cv2.imshow('Sprawdzana bomba', img_rgb[i])
 		cv2.waitKey(1500)
-		print('Progres skanowania pola minowego: ', 10 * len(bombType), '%')
+		print('Progres skanowania pola minowego: ', 10 * len(bombTypeOnly), '%')
 
-	for row in bombType:
+	for row in bombTypeOnly:
 		priorityVal = simple_classify(row, tree)
 		priority.append(priorityVal)
 		print(row, ' => ', priorityVal)
@@ -118,17 +120,17 @@ def graphBuild():
 
 
 	graph.addNode((0, 0))
-	posList.append((0, 0, 1))
+	posList.append([0, 0, 1])
 
 	for i in range(10):
 		graph.addNode((bombMaps[i][0], bombMaps[i][1]))
-		posList.append((bombMaps[i][0], bombMaps[i][1], (bombMaps[i][0] + bombMaps[i][1]) * priority[i]))
+		posList.append([bombMaps[i][0], bombMaps[i][1], (bombMaps[i][0] + bombMaps[i][1]) * priority[i]])
 
 	graph.addNode((9, 9))
 
 	posList.sort(key=lambda x: x[2])
 
-	posList.append((9, 9, 1))
+	posList.append([9, 9, 1])
 
 	# linking the nodes
 	# 0 -> 1 | 0 -> 2 | 0 -> 3
@@ -161,4 +163,5 @@ def graphBuild():
 
 def returnTreeWithWeight():
 	graphBuild()
-	return bombType, graphNodes, posList, priority, bombProp, mapMatrix, counter, counterText
+	return bombType, graphNodes, posList, priority, bombProp, mapMatrix, counter, counterText, bombTypeOnly
+
