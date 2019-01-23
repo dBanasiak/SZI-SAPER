@@ -1,6 +1,7 @@
 import pygame
 import sys
 from ucs.allPriorityData import returnPriorityData
+import time
 
 returnPriorityData = returnPriorityData()
 
@@ -13,32 +14,38 @@ mapMatrix = returnPriorityData[5]
 counter = returnPriorityData[6]
 counterText = returnPriorityData[7]
 allBombs = []
-moveX = 0
-moveY = 0
 
 right = True
 up = True
+finish = False
+
+moveX = 0
+moveY = 0
 
 def nextNode():
-    posList.pop(0)
+    print('rozbrajam')
+    global moveX
+    global moveY
     moveX = 0
     moveY = 0
+    time.sleep(5)
+    posList.pop(0)
     dist()
 
 def dist():
-    print(posList[0][0], posList[0][1])
-    print(posList[1][0], posList[1][1])
+    print('Pos1: ', posList[0][0], posList[0][1])
+    print('Pos2: ', posList[1][0], posList[1][1])
+    global moveX, moveY, right, up
 
     if posList[1][0] > posList[0][0]:
         moveX = posList[1][0] - posList[0][0]
         print('1 > 0 x : ', moveX)
         right = True
-    else:
+    elif posList[1][0] < posList[0][0]:
         moveX = posList[0][0] - posList[1][0]
         print('0 > 1 x : ', moveX)
         right = False
-
-    if posList[1][1] > posList[0][1]:
+    elif moveX == 0 and posList[1][1] > posList[0][1]:
         moveY = posList[1][1] - posList[0][1]
         print('1 > 0 y : ', moveY)
         up = True
@@ -47,31 +54,33 @@ def dist():
         print('0 > 1 y : ', moveY)
         up = False
 
-    if moveX + moveY > 0:
+    if moveX + moveY > 0 and posList.__len__() > 1:
         if right == True:
             moveX -= 1
             mapMatrix[posList[0][0]][posList[0][1]] = 0
             mapMatrix[posList[0][0] + 1][posList[0][1]] = 1
             posList[0][0] = posList[0][0] + 1
-        if right == False:
+        elif right == False:
             moveX -= 1
             mapMatrix[posList[0][0]][posList[0][1]] = 0
             mapMatrix[posList[0][0] - 1][posList[0][1]] = 1
             posList[0][0] -= 1
-        if up == True:
-            moveY -= 1
-            mapMatrix[posList[0][0]][posList[0][1]] = 0
-            mapMatrix[posList[0][0]][posList[0][1] + 1] = 1
-            posList[0][1] -= 1
-        if up == False:
-            moveY -= 1
-            mapMatrix[posList[0][0]][posList[0][1]] = 0
-            mapMatrix[posList[0][0]][posList[0][1] - 1] = 1
-            posList[0][1] -= 1
+        elif moveX == 0 and moveY > 0:
+            if up == True:
+                moveY -= 1
+                mapMatrix[posList[0][0]][posList[0][1]] = 0
+                mapMatrix[posList[0][0]][posList[0][1] + 1] = 1
+                posList[0][1] -= 1
+            if up == False:
+                moveY -= 1
+                mapMatrix[posList[0][0]][posList[0][1]] = 0
+                mapMatrix[posList[0][0]][posList[0][1] - 1] = 1
+                posList[0][1] -= 1
 
     # następny node
     else:
-        nextNode()
+        if posList.__len__() > 1:
+            nextNode()
 
 bomb1Path = '../neuralNetwork/images/test1.png'
 bomb2Path = '../neuralNetwork/images/test2.png'
@@ -153,3 +162,5 @@ def app():
         dist()
         pygame.display.flip()
         clock.tick(FPS)
+
+app()
