@@ -30,11 +30,16 @@ def nextNode():
     moveY = 0
     time.sleep(5)
     posList.pop(0)
+    print('After: ', posList)
     dist()
 
+print('Before: ', posList)
 def dist():
+
     print('Pos1: ', posList[0][0], posList[0][1])
-    print('Pos2: ', posList[1][0], posList[1][1])
+    if posList[1][0] != None:
+        print('Pos2: ', posList[1][0], posList[1][1])
+
     global moveX, moveY, right, up
 
     if posList[1][0] > posList[0][0]:
@@ -48,35 +53,38 @@ def dist():
     elif moveX == 0 and posList[1][1] > posList[0][1]:
         moveY = posList[1][1] - posList[0][1]
         print('1 > 0 y : ', moveY)
-        up = True
-    else:
+        up = False
+    elif moveX == 0 and posList[1][1] < posList[0][1]:
         moveY = posList[0][1] - posList[1][1]
         print('0 > 1 y : ', moveY)
-        up = False
+        up = True
 
     if moveX + moveY > 0 and posList.__len__() > 1:
-        if right == True:
+        if moveX > 0 and moveY >= 0 and right == True:
             moveX -= 1
             mapMatrix[posList[0][0]][posList[0][1]] = 0
             mapMatrix[posList[0][0] + 1][posList[0][1]] = 1
             posList[0][0] = posList[0][0] + 1
-        elif right == False:
+        elif moveX > 0 and moveY >= 0 and right == False:
             moveX -= 1
             mapMatrix[posList[0][0]][posList[0][1]] = 0
             mapMatrix[posList[0][0] - 1][posList[0][1]] = 1
             posList[0][0] -= 1
         elif moveX == 0 and moveY > 0:
             if up == True:
-                moveY -= 1
-                mapMatrix[posList[0][0]][posList[0][1]] = 0
-                mapMatrix[posList[0][0]][posList[0][1] + 1] = 1
-                posList[0][1] -= 1
-            if up == False:
+                print('up')
                 moveY -= 1
                 mapMatrix[posList[0][0]][posList[0][1]] = 0
                 mapMatrix[posList[0][0]][posList[0][1] - 1] = 1
                 posList[0][1] -= 1
-
+            if up == False:
+                print('down')
+                moveY -= 1
+                mapMatrix[posList[0][0]][posList[0][1]] = 0
+                mapMatrix[posList[0][0]][posList[0][1] + 1] = 1
+                posList[0][1] += 1
+    elif posList[0][0] == 9 and posList[0][1] == 9:
+            print('Wszystko rozbrojone!')
     # następny node
     else:
         if posList.__len__() > 1:
